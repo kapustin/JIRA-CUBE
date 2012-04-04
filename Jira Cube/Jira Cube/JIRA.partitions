@@ -1,0 +1,45 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="50ff7e93-604b-48e7-b84b-b14bf2d36d38" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>JIRA</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Bonus</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c1a91b88-1b94-4892-a3d6-986e97250175">
+          <ID>Fact Bonus</ID>
+          <Name>Fact Bonus</Name>
+          <CreatedTimestamp>0001-01-01T08:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T08:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T08:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="07b85f62-3877-484a-b60d-6acc271cea0b">
+            <DataSourceViewID>JIRA DWH</DataSourceViewID>
+            <TableID>dbo_factBonus</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Transition</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a73d3271-858a-459e-bb73-4550a1467409">
+          <ID>Fact Transition</ID>
+          <Name>Fact Transition</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="71589124-a4d6-474e-8332-90bdd874b6f5">
+            <DataSourceViewID>JIRA DWH</DataSourceViewID>
+            <TableID>dbo_factTransition</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

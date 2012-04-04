@@ -1,0 +1,319 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="34c640f2-8080-44f9-97dc-d9a22a37149a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Тип запроса</ID>
+  <Name>Тип запроса</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2679" scrolltop="-5635" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8599" y="16113" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="dimIssueType" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3201" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000810c0000ea120000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimIssueType" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2679</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-5635</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="130">
+            <Shape Id="Uid" Expanded="true">
+              <Attributes>
+                <Attribute Id="Uid" />
+                <Attribute Id="Issuetype Desc" />
+                <Attribute Id="Issuetype Id" />
+                <Attribute Id="Issuetype Name" />
+                <Attribute Id="Issuetype Style" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Project Name" Expanded="true">
+              <Attributes>
+                <Attribute Id="Project Name" />
+                <Attribute Id="Project Desc" />
+                <Attribute Id="Project Id" />
+                <Attribute Id="Project Key" />
+              </Attributes>
+              <Position x="187" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="1c3e96c4-2b58-4b90-b4a9-d6e5ff217810">
+    <DataSourceViewID>JIRA DWH</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="65c1873d-58a7-438f-bff9-185b7f3e57fa">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="b65927ba-4e82-4d35-905f-33303d4c9464">
+      <ID>Uid</ID>
+      <Name>Uid</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="91b6ff57-19c5-49ad-92c8-659ced6de623">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cf283ca3-8c17-4a26-aa93-26b95015778d">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>uid</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1c980eb9-b95d-4785-95af-9ddc2a01593c">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a8e2809b-4a97-4884-b166-c2d877cfd338">
+          <TableID>dbo_dimIssueType</TableID>
+          <ColumnID>issuetype_name</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="d1dea10f-ca75-488c-9b6e-f97aee49f23c">
+          <AttributeID>Issuetype Id</AttributeID>
+          <Name>Issuetype Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8a92c72a-7735-43d1-83fd-c13fce6bc8a7">
+          <AttributeID>Issuetype Desc</AttributeID>
+          <Name>Issuetype Desc</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f7619560-be11-4e55-aa49-551dd5f08bee">
+          <AttributeID>Issuetype Style</AttributeID>
+          <Name>Issuetype Style</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fdb39992-f68c-481f-b169-29bc48ace74b">
+          <AttributeID>Project Name</AttributeID>
+          <Name>Проект</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c96506ca-46f7-4b17-887b-48611dfd27b7">
+          <AttributeID>Issuetype Name</AttributeID>
+          <Name>Тип запроса</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b61dd390-68c4-47d0-8355-ce61ea6016ba">
+      <ID>Issuetype Id</ID>
+      <Name>Issuetype Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1c5312ea-aa26-4e40-afc4-a1aad8544400">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5f73c905-5d6d-4a5a-9fe1-a3181ee07271">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>issuetype_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="197dafa0-4e47-4b68-9be3-6d9d2e3cedd2">
+      <ID>Issuetype Desc</ID>
+      <Name>Issuetype Desc</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="124e5de4-f14c-4d4e-b6ce-0011544a389c">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2eed6586-bd90-4677-8317-e13dd8e3fbd1">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>issuetype_desc</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a382d28e-5d94-40b8-a96e-50c5965d1e90">
+      <ID>Issuetype Style</ID>
+      <Name>Issuetype Style</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5d9636a6-eaed-4293-954c-7200e3224b61">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="76a0d068-d888-4d5e-9bee-7488d7a5b3e4">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>issuetype_style</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="345b7441-4c7d-4227-ae27-beca99a9b81e">
+      <ID>Project Id</ID>
+      <Name>Project Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="31acf802-42b6-4d54-a610-46eb4232c719">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8d7c20a0-a5d5-4b03-9a11-f82cebbadb12">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>project_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="80f166cd-0cbf-4580-b4ea-5117d079bf9e">
+      <ID>Project Key</ID>
+      <Name>Project Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="33dea430-ad68-4ace-a88a-6d71a328c9a3">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="99e9a991-eca5-4e11-8b80-95a644ed9cb1">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>project_key</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="08dfcefa-cddd-437d-8cca-7e4ca1a2f263">
+      <ID>Project Name</ID>
+      <Name>Проект</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="09ae2175-3207-4f25-8b5e-a645d0b5f8c2">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ca4a5bf2-1931-4c92-af79-4fa54a20056a">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>project_name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="c3efc093-7ff9-4735-8074-d2decc637631">
+          <AttributeID>Project Desc</AttributeID>
+          <Name>Project Desc</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8807099b-6bb8-4ab1-a0e1-f1cc9e18eebb">
+          <AttributeID>Project Key</AttributeID>
+          <Name>Project Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="932dd330-30e4-4080-9563-c2f662f3bc4e">
+          <AttributeID>Project Id</AttributeID>
+          <Name>Project Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fab42429-6cd2-43d8-b64a-2b0d3967774f">
+      <ID>Project Desc</ID>
+      <Name>Project Desc</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bbdf96d1-b982-4964-9ebf-0be033d63492">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="225a330f-2686-4fab-ad69-0b4cd7a5a99d">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>project_desc</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="81124c89-00b3-4cd2-8b38-661296c868ec">
+      <ID>Issuetype Name</ID>
+      <Name>Тип запроса</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="44c5da61-b221-4fa8-bed2-c412339e7018">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e2712632-a0f2-43e6-b109-06aad31651bb">
+            <TableID>dbo_dimIssueType</TableID>
+            <ColumnID>issuetype_name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="2c276bae-3439-4fd3-88f7-fa1564b87cdb">
+      <ID>Hierarchy</ID>
+      <Name>Проект-Тип запроса</Name>
+      <Levels>
+        <Level dwd:design-time-name="29892a09-bce3-4d71-8ce1-24fc52636809">
+          <ID>Project Name</ID>
+          <Name>Проект</Name>
+          <SourceAttributeID>Project Name</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="0cf2c21d-d583-49e6-b316-db3d3cca591d">
+          <ID>Uid</ID>
+          <Name>Тип запроса</Name>
+          <SourceAttributeID>Uid</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+</Dimension>

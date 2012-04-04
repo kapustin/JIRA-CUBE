@@ -1,0 +1,110 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Jira</Database>
+    <Server>hqvsrv85</Server>
+    <ConnectionString>DataSource=hqvsrv85;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>JzWY+8yuiN+krr28EhDPUFAmFCI=19.03.2012 14:44:3319.03.2012 14:23:22</TimeStamp>
+        <ID>
+          <String>JIRA DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>LBAMxuOihCbX3LS5BWBIqDlk2Sc=03.04.2012 15:29:0219.03.2012 14:23:22</TimeStamp>
+        <ID>
+          <String>JIRA DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6fqWqEA7jFdKlhu4kDqXESzQMvg=19.03.2012 15:51:3219.03.2012 14:23:21</TimeStamp>
+        <ID>
+          <String>Bonus Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2Jj9JlEtlSoyC0wbI77GcLcDzlE=15.03.2012 22:09:3119.03.2012 14:23:21</TimeStamp>
+        <ID>
+          <String>Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>X4Jp9hjEjAd/gMJHZp26Gm/sgek=23.03.2012 17:14:3419.03.2012 14:23:22</TimeStamp>
+        <ID>
+          <String>Person</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UG/j1CkViBPZDEI5mCv3CI1/baU=03.04.2012 15:07:5319.03.2012 14:23:21</TimeStamp>
+        <ID>
+          <String>Issue Status</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>iEMCmsl2k/7Sw9F0k8CPppF3Z3A=18.03.2012 12:24:0419.03.2012 14:23:22</TimeStamp>
+        <ID>
+          <String>Тип запроса</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MP7Z5GKMyjuckJ/3J/jYUzF9G3I=03.04.2012 15:04:5203.04.2012 15:02:01</TimeStamp>
+        <ID>
+          <String>Priority</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jYdVTzN/48SR3crsNEsOpeSb6A8=03.04.2012 20:49:1603.04.2012 15:02:30</TimeStamp>
+        <ID>
+          <String>Service</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>xvfZ5mEMAaJ2enFjfMf78bZzvDw=04.04.2012 11:38:5219.03.2012 14:23:22ay57tWNhtJiotMYNyxNqUUO02ns=17.03.2012 20:53:3319.03.2012 14:23:22</TimeStamp>
+        <ID>
+          <String>JIRA</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Role</Type>
+        <TimeStamp>CuhYLnp6j8Nnx6l7nXmnAGJoj9U=19.03.2012 15:51:3119.03.2012 15:49:50</TimeStamp>
+        <ID>
+          <String>Role</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>fuox3E8xqp+rXIVpCBSaMWVrD0I=19.03.2012 15:51:3319.03.2012 14:23:22</TimeStamp>
+      <ID>
+        <String>Jira</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2012-04-04T07:39:03.956667Z</LastDeployed>
+</DeploymentSnapshot>

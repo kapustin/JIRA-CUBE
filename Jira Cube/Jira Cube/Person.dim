@@ -1,0 +1,284 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e054c616-a8c4-4899-8c6f-8ec730b0b97e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Person</ID>
+  <Name>Люди</Name>
+  <CreatedTimestamp>0001-01-01T08:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T08:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2779" scrolltop="-6694" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10081" y="16748" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="dimPerson" left="-112" top="-1270" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="5556" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000b4150000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_dimPerson" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2779</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-6694</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-112</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-1270</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="144">
+            <Shape Id="Uid" Expanded="true">
+              <Attributes>
+                <Attribute Id="Uid" />
+                <Attribute Id="AD Name" />
+                <Attribute Id="Position" />
+                <Attribute Id="Tab Num" />
+                <Attribute Id="Full Name" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Department" Expanded="true">
+              <Attributes>
+                <Attribute Id="Department" />
+              </Attributes>
+              <Position x="205" y="20" />
+            </Shape>
+            <Shape Id="Division" Expanded="false">
+              <Attributes>
+                <Attribute Id="Division" />
+              </Attributes>
+              <Position x="390" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T08:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="b096d425-78d4-4879-b231-82a9299813f6">
+    <DataSourceViewID>JIRA DWH</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="d65b0347-c4af-418a-9f71-6f57f7a44aba">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1049</Language>
+  <Attributes>
+    <Attribute dwd:design-time-name="36257221-f7bc-4d4f-8d47-3e22d09b3f5a">
+      <ID>Uid</ID>
+      <Name>Люди</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fc98cfaa-6059-4697-b69a-b51883fac099">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eb5330e2-de5e-4670-ba50-ba119c363b06">
+            <TableID>dbo_dimPerson</TableID>
+            <ColumnID>uid</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="abd02b79-b0c2-4cdf-8dc6-92a9ab7459ce">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="96ce0b0a-d95e-4cd5-8606-74e22bffc302">
+          <TableID>dbo_dimPerson</TableID>
+          <ColumnID>ShortName</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="364a6d81-7559-44b9-8a5d-cff272f27f1d">
+          <AttributeID>AD Name</AttributeID>
+          <Name>AD Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0e491391-085d-4321-838e-84e486faf23d">
+          <AttributeID>Full Name</AttributeID>
+          <Name>ФИО полностью</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="85c17b82-a856-4c86-8d6a-04af209c86c7">
+          <AttributeID>Department</AttributeID>
+          <Name>Отдел</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0735d4f3-e3d1-41ad-942a-8387b2d4b4ea">
+          <AttributeID>Tab Num</AttributeID>
+          <Name>Табельный номер</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e97af113-6127-4f09-8000-e70148d9066e">
+          <AttributeID>Position</AttributeID>
+          <Name>Должность</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8bb284b4-fcd4-43dc-a212-f161e4e18b5f">
+      <ID>AD Name</ID>
+      <Name>AD Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="65bfd9e1-5810-4291-bba0-58efda2ff7f2">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f2197b92-0d80-4bc6-a4d1-78392991d49d">
+            <TableID>dbo_dimPerson</TableID>
+            <ColumnID>ADName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="54d939c6-8df6-44d4-9c53-22fb448334f5">
+      <ID>Full Name</ID>
+      <Name>ФИО полностью</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8ff29cf7-82a5-42b0-90a0-ebda0c456122">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8ffb84a9-2a39-47e3-b697-8e07f66ff344">
+            <TableID>dbo_dimPerson</TableID>
+            <ColumnID>FullName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ed371969-2d21-4ac8-b5e5-d856898949e8">
+      <ID>Department</ID>
+      <Name>Отдел</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="88d12365-9af4-4043-9ab5-d098523cf0d4">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="04e6874d-36fb-433b-8688-8406693ac65f">
+            <TableID>dbo_dimPerson</TableID>
+            <ColumnID>Department</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="e2eed5a1-7535-4722-9bc8-2870c83b9784">
+          <AttributeID>Division</AttributeID>
+          <Name>Division</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="fef1a796-1426-4c65-a7c7-18535a8b0b05">
+      <ID>Tab Num</ID>
+      <Name>Табельный номер</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4ddaa11d-cb3d-4265-a0de-1bbd35307938">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ae6c4b0a-4b14-4bcc-b699-9f37031fecc8">
+            <TableID>dbo_dimPerson</TableID>
+            <ColumnID>TabNum</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="57a98929-c0be-40a6-b70a-16bed89e1087">
+      <ID>Position</ID>
+      <Name>Должность</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c85d27f5-967a-4846-8629-28edf60edb67">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="49a04e01-c290-4593-97af-343872582ab2">
+            <TableID>dbo_dimPerson</TableID>
+            <ColumnID>Position</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="169cbd0e-acaf-45de-b435-d168984d78f1">
+      <ID>Division</ID>
+      <Name>Подразделение</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3170b33c-6d66-426c-9a17-1e9d09bcba1d">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c6d346d8-28d9-4aa1-9740-e782182c1a3e">
+            <TableID>dbo_dimPerson</TableID>
+            <ColumnID>Division</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="1edff87c-2e03-45f5-afa2-7299786c1571">
+      <ID>Hierarchy</ID>
+      <Name>Иерархия отделов</Name>
+      <Levels>
+        <Level dwd:design-time-name="8252e910-0a58-45dc-892d-bedc0a4008a7">
+          <ID>Division</ID>
+          <Name>Подразделение</Name>
+          <SourceAttributeID>Division</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="e74115c9-ca3a-4f38-a025-bbecc7020a4a">
+          <ID>Department</ID>
+          <Name>Отдел</Name>
+          <SourceAttributeID>Department</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="8511cbfd-dc30-4d51-922d-ce9fc6935759">
+          <ID>Люди</ID>
+          <Name>Люди</Name>
+          <SourceAttributeID>Uid</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+</Dimension>
