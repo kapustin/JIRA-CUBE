@@ -35,7 +35,7 @@ where ji.project=10180
 	and ji.resolution=1 
 	and ji.issuestatus=6
 	and cg.CREATED>=@sup_10start and cg.CREATED<@sup_20start
-	and CONVERT(varchar(5),newvalue)='6' and CONVERT(varchar(5),oldvalue)='5'
+	and newvalue='6' and oldvalue='5'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
 -- 20 рублей с 01/04/2012
@@ -63,7 +63,7 @@ where ji.project=10180
 	and ji.resolution=1 
 	and ji.issuestatus=6
 	and cg.CREATED>=@sup_20start
-	and CONVERT(varchar(5),newvalue)='6' and CONVERT(varchar(5),oldvalue)='5'
+	and newvalue='6' and oldvalue='5'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
 
