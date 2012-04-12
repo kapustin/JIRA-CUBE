@@ -67,7 +67,7 @@ where cfv.ISSUE=factTransition.issueid
 -- Заполнение сервиса
 update factTransition 
 	set service_uid=srv.uid
-from dbo.customfieldvalue cfv
+from dbo.customfieldvalue cfv WITH (INDEX(stringval__issue_cf))
 	join dimService srv on srv.name=cfv.STRINGVALUE 
 where cfv.CUSTOMFIELD in (select id from customfield where cfname='Сервис') 
 	and cfv.ISSUE=factTransition.issueid 
