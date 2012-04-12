@@ -81,7 +81,7 @@ select
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
 	,2 bonustype_uid
 	,COUNT(distinct ji.ID) * 	CASE 
-					WHEN MAX(dimDate.DateKey) > 20120401 
+					WHEN MAX(dimDate.DateKey) >= 20120401 
 						THEN 10 
 						ELSE 4 
 					END bonus
