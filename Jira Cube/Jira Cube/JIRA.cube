@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="44" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-8482" scrolltop="-11725" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="23627" y="16748" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="44" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-8482" scrolltop="-11725" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="25638" y="16563" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
@@ -393,11 +393,14 @@
   <Dimensions>
     <Dimension dwd:design-time-name="7b172598-f974-4040-8742-9ba33dd64863">
       <ID>Bonus Type</ID>
-      <Name>Bonus Type</Name>
+      <Name>Тип бонуса</Name>
       <DimensionID>Bonus Type</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="af179215-cc99-4202-ac4d-ba4fa40af265">
           <AttributeID>Uid</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6ff0ae05-1ca3-4e2b-991a-a0c7edb320cc">
+          <AttributeID>Description</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -597,6 +600,15 @@
       <Read>Allowed</Read>
       <ReadSourceData>Allowed</ReadSourceData>
     </CubePermission>
+    <CubePermission dwd:design-time-name="287517c6-c281-462b-97de-cfdb76139b00">
+      <ID>CubePermission 1</ID>
+      <Name>CubePermission 1</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <RoleID>Role 1</RoleID>
+      <Read>Allowed</Read>
+      <ReadSourceData>Allowed</ReadSourceData>
+    </CubePermission>
   </CubePermissions>
   <MeasureGroups>
     <MeasureGroup dwd:design-time-name="8c5b454e-e93e-42d8-a322-f78d4da8c530">
@@ -709,7 +721,6 @@
           </Attributes>
         </Dimension>
       </Dimensions>
-      <Partitions />
     </MeasureGroup>
     <MeasureGroup dwd:design-time-name="e7075331-9998-4f9f-bb04-2ade4b57a384">
       <ID>Fact Transition</ID>
@@ -882,7 +893,6 @@
           </Attributes>
         </Dimension>
       </Dimensions>
-      <Partitions />
     </MeasureGroup>
   </MeasureGroups>
   <Source dwd:design-time-name="c65d06ce-7dc5-4f46-b7e9-802258ee0cb5">
