@@ -47,6 +47,10 @@
       <Name>Service.dim</Name>
       <FullPath>Service.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Issue.dim</Name>
+      <FullPath>Issue.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>

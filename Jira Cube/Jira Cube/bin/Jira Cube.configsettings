@@ -32,6 +32,9 @@
       <Dimension>
         <ID>Service</ID>
       </Dimension>
+      <Dimension>
+        <ID>Issue</ID>
+      </Dimension>
     </Dimensions>
     <Cubes>
       <Cube>
