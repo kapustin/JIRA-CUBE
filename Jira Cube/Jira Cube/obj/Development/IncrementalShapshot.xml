@@ -19,7 +19,7 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>9u9kbjm2epf+1Ybk00r1cw==12.04.2012 12:56:4604.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>tgkXnJUitqgmwbVMYxvvWQ==12.04.2012 13:36:1804.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA DWH</String>
         </ID>
@@ -33,7 +33,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>muOTJZbu7pC+xZo0+GjLjg==12.04.2012 12:58:5204.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>72tjYz+s9aKAAR+L+WQTQQ==12.04.2012 13:36:1804.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>Bonus Type</String>
         </ID>
@@ -82,29 +82,22 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>sca9NinHJYJikwpJlR3Z8Q==12.04.2012 12:58:5204.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>DSGKF8ECjvTMiaFzUrivPQ==12.04.2012 13:36:4704.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Role</Type>
-        <TimeStamp>KHMKc4NuPmAQA7+xh9SSPg==19.03.2012 15:51:3104.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>zC5MJ4njR1LQfeZM5GCrHA==12.04.2012 13:36:1804.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>Role</String>
-        </ID>
-      </ObjectSnapshot>
-      <ObjectSnapshot>
-        <Type>Microsoft.AnalysisServices.Role</Type>
-        <TimeStamp>5vif05mQLnVVXcQIca27cQ==12.04.2012 12:57:2812.04.2012 12:53:43</TimeStamp>
-        <ID>
-          <String>Role 1</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>VU38m/1lg8dCkWjUCKR7fA==12.04.2012 12:57:2804.04.2012 22:05:20</TimeStamp>
+      <TimeStamp>PRtBpdM9x5VLSRcZRwTf2A==12.04.2012 13:36:1804.04.2012 22:05:20</TimeStamp>
       <ID>
         <String>Jira</String>
       </ID>
@@ -113,5 +106,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2012-04-12T09:00:25.83Z</LastDeployed>
+  <LastDeployed>2012-04-12T09:37:04.066667Z</LastDeployed>
 </DeploymentSnapshot>

@@ -10,13 +10,4 @@
     <ImpersonationInfoSecurity>Unchanged</ImpersonationInfoSecurity>
   </ImpersonationInfo>
   <Timeout>PT0S</Timeout>
-  <DataSourcePermissions>
-    <DataSourcePermission dwd:design-time-name="6854f0b5-3324-4321-a738-b5512d4bacb2">
-      <ID>DataSourcePermission</ID>
-      <Name>DataSourcePermission</Name>
-      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-      <RoleID>Role 1</RoleID>
-    </DataSourcePermission>
-  </DataSourcePermissions>
 </DataSource>

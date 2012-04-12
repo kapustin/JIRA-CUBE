@@ -600,15 +600,6 @@
       <Read>Allowed</Read>
       <ReadSourceData>Allowed</ReadSourceData>
     </CubePermission>
-    <CubePermission dwd:design-time-name="287517c6-c281-462b-97de-cfdb76139b00">
-      <ID>CubePermission 1</ID>
-      <Name>CubePermission 1</Name>
-      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-      <RoleID>Role 1</RoleID>
-      <Read>Allowed</Read>
-      <ReadSourceData>Allowed</ReadSourceData>
-    </CubePermission>
   </CubePermissions>
   <MeasureGroups>
     <MeasureGroup dwd:design-time-name="8c5b454e-e93e-42d8-a322-f78d4da8c530">
@@ -633,7 +624,7 @@
         </Measure>
         <Measure dwd:design-time-name="1fe62634-acf1-4c48-bca5-228eeb5b7efc">
           <ID>Bonus Issue Count</ID>
-          <Name>Кол-во бонусных обращений</Name>
+          <Name>Кол-во бонусных запросов</Name>
           <AggregateFunction>Count</AggregateFunction>
           <Source dwd:design-time-name="40449697-9098-4fb6-a866-5a9c518e1330">
             <DataType>Integer</DataType>
@@ -721,6 +712,7 @@
           </Attributes>
         </Dimension>
       </Dimensions>
+      <Partitions />
     </MeasureGroup>
     <MeasureGroup dwd:design-time-name="e7075331-9998-4f9f-bb04-2ade4b57a384">
       <ID>Fact Transition</ID>
@@ -893,6 +885,7 @@
           </Attributes>
         </Dimension>
       </Dimensions>
+      <Partitions />
     </MeasureGroup>
   </MeasureGroups>
   <Source dwd:design-time-name="c65d06ce-7dc5-4f46-b7e9-802258ee0cb5">

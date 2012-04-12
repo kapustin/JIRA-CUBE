@@ -62,12 +62,8 @@
   </DataSourceViews>
   <Roles>
     <ProjectItem>
-      <Name>IT.role</Name>
-      <FullPath>IT.role</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Role 1.role</Name>
-      <FullPath>Role 1.role</FullPath>
+      <Name>FullAccess.role</Name>
+      <FullPath>FullAccess.role</FullPath>
     </ProjectItem>
   </Roles>
   <Configurations>
