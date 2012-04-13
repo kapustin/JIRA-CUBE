@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>Default</ProcessingOption>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -82,14 +82,14 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>hROi/aX9UWXssxhlqz5IEQ==12.04.2012 17:09:3712.04.2012 17:08:56</TimeStamp>
+        <TimeStamp>ZtsyNqHW60uYJxZDWszB5w==13.04.2012 10:23:5712.04.2012 17:08:56</TimeStamp>
         <ID>
           <String>Issue</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>fYgeS0/mRcsHXOd9tCT0CQ==12.04.2012 17:10:3104.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>rSXdI2SQ2N9zzuBlFhcvHw==13.04.2012 9:25:1604.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA</String>
         </ID>
@@ -113,5 +113,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2012-04-12T13:11:09.576667Z</LastDeployed>
+  <LastDeployed>2012-04-13T06:24:10.47Z</LastDeployed>
 </DeploymentSnapshot>
