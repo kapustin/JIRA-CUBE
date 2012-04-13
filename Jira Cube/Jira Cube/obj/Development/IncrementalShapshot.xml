@@ -26,7 +26,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>OJ7DD0iHh6xIyUbwWnCZ9Q==12.04.2012 17:07:5704.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>OzW+wM8enaOTp63G0jLYPg==13.04.2012 14:57:5004.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA DWH</String>
         </ID>
@@ -82,14 +82,14 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ZtsyNqHW60uYJxZDWszB5w==13.04.2012 10:23:5712.04.2012 17:08:56</TimeStamp>
+        <TimeStamp>ezzTKqKq81UAnZTc2j8g2A==13.04.2012 17:36:4512.04.2012 17:08:56</TimeStamp>
         <ID>
           <String>Issue</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>rSXdI2SQ2N9zzuBlFhcvHw==13.04.2012 9:25:1604.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>XFWHrRIOEMiKvLconNHlcA==13.04.2012 17:02:0704.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA</String>
         </ID>
@@ -113,5 +113,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2012-04-13T06:24:10.47Z</LastDeployed>
+  <LastDeployed>2012-04-13T13:37:01.233333Z</LastDeployed>
 </DeploymentSnapshot>

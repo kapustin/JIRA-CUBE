@@ -74,6 +74,7 @@
               <Attributes>
                 <Attribute Id="Uid" />
                 <Attribute Id="Info" />
+                <Attribute Id="Client Uid" />
               </Attributes>
               <Position x="20" y="20" />
             </Shape>
@@ -123,6 +124,10 @@
           <AttributeID>Info</AttributeID>
           <Name>Заголовок</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="43430237-a178-41c3-85ed-e165ab2f0138">
+          <AttributeID>Client Uid</AttributeID>
+          <Name>Заказчик</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
     </Attribute>
@@ -130,20 +135,43 @@
       <ID>Info</ID>
       <Name>Заголовок</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="fa7827db-5247-4a04-8c31-8591f5547415">
+        <KeyColumn dwd:design-time-name="05f70e60-6240-4cb2-9067-901793d13428">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="37ae3679-70a2-4ae6-8e71-a41af9ea4562">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e16376d3-f46a-4837-98b1-e95dc83a7440">
             <TableID>dbo_dimIssue</TableID>
             <ColumnID>uid</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="b6fea697-03ec-43f9-a840-4886ebc4d44d">
+      <NameColumn dwd:design-time-name="e7e4ca9a-5eab-4eac-a25e-d9a75fca4297">
         <DataType>WChar</DataType>
         <DataSize>255</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="3a964fad-6c48-4efb-864d-4aa0c3cbda3f">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b19b9bf7-1533-49a4-a413-6c2254619180">
           <TableID>dbo_dimIssue</TableID>
           <ColumnID>info</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5db73709-3432-4e37-bdb8-21547fabebc1">
+      <ID>Client Uid</ID>
+      <Name>Заказчик</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b6d5b257-d8d8-4ed1-b357-e5b0454936dd">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="661ea139-4822-4957-9b0c-589d038d3d53">
+            <TableID>dbo_dimIssue</TableID>
+            <ColumnID>client_uid</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="cf8a5b08-57ab-46c9-841e-d682a0b8f3d1">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="10500141-b1a3-443e-804d-dae684459ef2">
+          <TableID>dbo_dimPerson</TableID>
+          <ColumnID>ShortName</ColumnID>
         </Source>
       </NameColumn>
       <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
