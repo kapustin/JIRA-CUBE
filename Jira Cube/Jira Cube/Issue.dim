@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3811" scrolltop="-7130" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="3043" y="15875" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3141" scrolltop="-8638" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="3043" y="15875" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01cc0000900144420100065461686f6d61" />
             </font>
@@ -19,9 +19,9 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="dimIssue" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="dimIssue" left="-3181" top="-5318" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="3810" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
-              <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000fe080000" />
+              <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000e20e0000" />
             </control>
             <layoutobject>
               <ddsxmlobj>
@@ -47,19 +47,19 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-3811</Value>
+      <Value>-3141</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-7130</Value>
+      <Value>-8638</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>20</Value>
+      <Value>-3181</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
-      <Value>0</Value>
+      <Value>-5318</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
@@ -128,6 +128,18 @@
           <AttributeID>Client Uid</AttributeID>
           <Name>Заказчик</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7d9c8537-192c-45bb-886d-14686ffb2452">
+          <AttributeID>Service Uid</AttributeID>
+          <Name>Сервис</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f722633c-30de-4783-8c49-c3cc3bec9e82">
+          <AttributeID>Priority Uid</AttributeID>
+          <Name>Приоритет</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1e0e6dfe-d56c-41cd-837b-cf14e016a064">
+          <AttributeID>Issuetype Uid</AttributeID>
+          <Name>Тип запроса</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
     </Attribute>
@@ -172,6 +184,75 @@
         <Source xsi:type="ColumnBinding" dwd:design-time-name="10500141-b1a3-443e-804d-dae684459ef2">
           <TableID>dbo_dimPerson</TableID>
           <ColumnID>ShortName</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c9433375-001f-4d81-b244-c105c4bbc331">
+      <ID>Service Uid</ID>
+      <Name>Сервис</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="bb6bea9e-bf8a-4ffd-abd8-743073e3c53d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8413cd9e-d644-4770-ad9d-f3ef502bdb37">
+            <TableID>dbo_dimIssue</TableID>
+            <ColumnID>service_uid</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="eef7a4d0-0493-4d6e-afa0-63d91f88e21f">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="27dcc04e-320f-414c-bb94-79cc14499668">
+          <TableID>dbo_dimService</TableID>
+          <ColumnID>name</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1b821ac7-6e63-421c-8f51-d591ec432ee3">
+      <ID>Priority Uid</ID>
+      <Name>Приоритет</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5963edfd-b902-4c84-8284-c7456ff0ad9c">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="122b5be7-52a8-44dc-9d63-6966bed0fd8b">
+            <TableID>dbo_dimIssue</TableID>
+            <ColumnID>priority_uid</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ab6ae037-5b4e-41dc-8e07-8c5685ef482e">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="df29e24c-516c-4a4f-9812-33006bfef7fe">
+          <TableID>dbo_dimPriority</TableID>
+          <ColumnID>name</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="74df5474-9983-46e0-950e-fef8f1c689ec">
+      <ID>Issuetype Uid</ID>
+      <Name>Тип запроса</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2b9b99ec-7664-42f4-87e8-dcaa99a5afbf">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="501749f2-49cc-44a0-b6e2-e0e79ddba539">
+            <TableID>dbo_dimIssue</TableID>
+            <ColumnID>issuetype_uid</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d0bb9c2b-df23-42e5-8b0c-46c680376016">
+        <DataType>WChar</DataType>
+        <DataSize>60</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8079631c-bae6-4dfb-8df5-1482be128b3b">
+          <TableID>dbo_dimIssueType</TableID>
+          <ColumnID>issuetype_name</ColumnID>
         </Source>
       </NameColumn>
       <AttributeHierarchyVisible>false</AttributeHierarchyVisible>

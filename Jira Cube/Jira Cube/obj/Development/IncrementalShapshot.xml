@@ -26,14 +26,14 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>OzW+wM8enaOTp63G0jLYPg==13.04.2012 14:57:5004.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>jfho/t/kvAvLSViDhMvBzQ==13.04.2012 22:59:2304.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA DWH</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>72tjYz+s9aKAAR+L+WQTQQ==12.04.2012 13:36:1804.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>h4YdGnp/crrG9W+LSeFKwQ==13.04.2012 22:13:4004.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>Bonus Type</String>
         </ID>
@@ -75,21 +75,21 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>T57C8Tl+a+/epXyLn5qcKA==03.04.2012 20:49:1604.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>DQeeNLQF1JLoImy6uPBFnA==13.04.2012 23:05:3504.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>Service</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ezzTKqKq81UAnZTc2j8g2A==13.04.2012 17:36:4512.04.2012 17:08:56</TimeStamp>
+        <TimeStamp>Al66eoREWU3rTAmh41Mg4g==13.04.2012 23:01:5412.04.2012 17:08:56</TimeStamp>
         <ID>
           <String>Issue</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>XFWHrRIOEMiKvLconNHlcA==13.04.2012 17:02:0704.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>KuYq35qvXLLJBGPst18TeA==13.04.2012 23:02:5904.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA</String>
         </ID>
@@ -113,5 +113,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2012-04-13T13:37:01.233333Z</LastDeployed>
+  <LastDeployed>2012-04-13T19:09:28.023333Z</LastDeployed>
 </DeploymentSnapshot>

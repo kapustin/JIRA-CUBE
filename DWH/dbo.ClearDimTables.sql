@@ -6,12 +6,13 @@ AS
 BEGIN
 SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 
-DELETE FROM dimPriority;
+DELETE FROM dbo.dimIssue;
+DELETE FROM dbo.dimPriority;
 DELETE FROM dbo.dimIssueType;
 DELETE FROM dbo.dimIssueStatus;
 DELETE FROM dbo.dimPerson;
 DELETE FROM dbo.dimService;
-DELETE FROM dbo.dimIssue;
+
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
