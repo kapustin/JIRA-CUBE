@@ -41,5 +41,25 @@
         </Partition>
       </Partitions>
     </MeasureGroup>
+    <MeasureGroup>
+      <ID>Fact Person Stats</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="9b2d2a4a-0091-4a33-89dc-8486e18193ad">
+          <ID>Fact Person Stats</ID>
+          <Name>Fact Person Stats</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="5f31bfee-61f2-497f-8adb-b6e2bc7869df">
+            <DataSourceViewID>JIRA DWH</DataSourceViewID>
+            <TableID>dbo_factPersonStats</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
   </MeasureGroups>
 </Cube>

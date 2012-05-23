@@ -12,6 +12,10 @@ TRUNCATE TABLE dbo.changeitem;
 TRUNCATE TABLE dbo.issuelink;
 TRUNCATE TABLE dbo.customfieldvalue;
 TRUNCATE TABLE dbo.customfield;
+TRUNCATE TABLE dbo.emp_quality_coefficient;
+TRUNCATE TABLE dbo.entrance;
+TRUNCATE TABLE dbo.emp_schedule;
+TRUNCATE TABLE dbo.ddate;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END

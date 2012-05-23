@@ -26,7 +26,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>jfho/t/kvAvLSViDhMvBzQ==13.04.2012 22:59:2304.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>i0h2gNX8tmQ1oh7DWi+niw==12.05.2012 11:10:5104.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA DWH</String>
         </ID>
@@ -89,7 +89,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>KuYq35qvXLLJBGPst18TeA==13.04.2012 23:02:5904.04.2012 22:05:20LhNO+EUW4WaHs1l5tde5Yg==17.03.2012 20:53:3304.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>2cEHFfbLe6OaaS7otQ2CGw==12.05.2012 17:15:4004.04.2012 22:05:20wjP0sw3tEkyDWCx1BiMTDA==12.05.2012 11:15:5904.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA</String>
         </ID>
@@ -113,5 +113,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2012-04-13T19:09:28.023333Z</LastDeployed>
+  <LastDeployed>2012-05-12T13:15:57.106667Z</LastDeployed>
 </DeploymentSnapshot>

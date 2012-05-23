@@ -56,6 +56,14 @@
               </Partition>
             </Partitions>
           </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Person Stats</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Person Stats</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
         </MeasureGroups>
       </Cube>
     </Cubes>

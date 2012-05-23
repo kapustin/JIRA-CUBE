@@ -8,6 +8,7 @@ SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 
 TRUNCATE TABLE dbo.factTransition;
 TRUNCATE TABLE dbo.factBonus;
+TRUNCATE TABLE dbo.factPersonStats;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
