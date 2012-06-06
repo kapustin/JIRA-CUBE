@@ -52,7 +52,7 @@ select
 	ISNULL(dimIssueType.uid,-1),
 	1,
 	case when count(distinct il.source)-count(distinct ji_dev.id)=0 and count(distinct il.source)>0 then 20/2 
-		when COUNT(distinct il.source)>0 then 20*(4+COUNT(distinct il_dev.destination))/2 
+		when COUNT(distinct ji2.id)>0 then 20*(4+COUNT(distinct il_dev.destination))/2 
 		else 20 end bonus,
 	ji.ID
 from jiraissue ji
@@ -60,6 +60,7 @@ from jiraissue ji
 	join changeitem ci on ci.groupid=cg.id and field='status'
 	left outer join issuelink il on il.destination=ji.id and il.linktype=10010 --il.source - dev
 	left outer join jiraissue ji_dev on ji_dev.id=il.source and ji_dev.resolution = 2
+	left outer join jiraissue ji2 on ji2.id=il.source and ji2.REPORTER=ji.assignee
 	left outer join issuelink il_dev on il_dev.source=il.source and il_dev.linktype=10000
 	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
 	left outer join dimPerson on dimPerson.ADname=ji.assignee
@@ -78,6 +79,13 @@ group by ji.id,dimIssueType.uid,dimPerson.uid;
 delete from dbo.factBonus
 where exists(select * from dbo.customfieldvalue cfv 
 where factBonus.issueid=cfv.ISSUE and cfv.CUSTOMFIELD=10660 and cfv.STRINGVALUE='Да');
+
+-- расставить коэффициенты качества
+update dbo.factBonus set quality=qc.coefficient
+from dimDate
+join emp_quality_coefficient qc on dimDate.FullDate between qc.ddateb and qc.ddatee
+join dimPerson on dimPerson.TabNum=qc.tabnum
+where dimDate.DateKey=dbo.factBonus.date_uid and dimPerson.uid=dbo.factBonus.person_uid
 
 -------------------------------------
 --
@@ -123,7 +131,11 @@ select
 	,ISNULL(dimPerson.uid,-1) person_uid
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
 	,3 bonustype_uid
-	,10 bonus
+	,CASE 
+		WHEN MAX(dimDate.DateKey) >= 20120501 
+			THEN 20 
+			ELSE 10 
+		END bonus
 	,ji.ID issueid
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
@@ -143,8 +155,12 @@ select
 	 ISNULL(MAX(dimDate.DateKey),-1) date_uid
 	,ISNULL(dimPerson.uid,-1) person_uid
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
-	,3 bonustype_uid
-	,COUNT(distinct cg.ID) * 2 bonus
+	,9 bonustype_uid
+	,COUNT(distinct cg.ID) * CASE 
+		WHEN MAX(dimDate.DateKey) >= 20120501 
+			THEN 4 
+			ELSE 2
+		END bonus
 	,ji.ID issueid
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
@@ -166,7 +182,11 @@ select
 	,ISNULL(dimPerson.uid,-1) person_uid
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
 	,4 bonustype_uid
-	,10 bonus
+	,CASE 
+		WHEN MAX(dimDate.DateKey) >= 20120501 
+			THEN 20 
+			ELSE 10
+		END bonus
 	,ji.ID issueid
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
@@ -212,7 +232,11 @@ select
 	,ISNULL(dimPerson.uid,-1) person_uid
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
 	,6 bonustype_uid
-	,10 bonus
+	,CASE 
+		WHEN MAX(dimDate.DateKey) >= 20120501 
+			THEN 20 
+			ELSE 10
+		END bonus
 	,ji.ID issueid
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
@@ -234,7 +258,11 @@ select
 	,ISNULL(dimPerson.uid,-1) person_uid
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
 	,7 bonustype_uid
-	,10 bonus
+	,CASE 
+		WHEN MAX(dimDate.DateKey) >= 20120501 
+			THEN 20 
+			ELSE 10
+		END bonus
 	,ji.ID issueid
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
@@ -256,7 +284,11 @@ select
 	,ISNULL(dimPerson.uid,-1) person_uid
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
 	,8 bonustype_uid
-	,10 bonus
+	,CASE 
+		WHEN MAX(dimDate.DateKey) >= 20120501 
+			THEN 20 
+			ELSE 10
+		END bonus
 	,ji.ID issueid
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id

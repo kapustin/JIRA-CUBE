@@ -11,7 +11,7 @@ select	 ji.ID
 		,ji.pkey
 		,ji.SUMMARY info
 		,ISNULL(dimPerson.uid,-1) client_uid
-		,ISNULL(dimService.uid,(SELECT uid FROM dimService WHERE name='Не определено')) service_uid
+		,ISNULL(MAX(dimService.uid),(SELECT uid FROM dimService WHERE name='Не определено')) service_uid -- Нужно исправить
 		,ISNULL(dimPriority.uid,-1) priority_uid
 		,ISNULL(dimIssueType.uid,-1) issuetype_uid
 FROM jiraissue ji
@@ -21,7 +21,7 @@ FROM jiraissue ji
 		left outer join dimPerson on dimPerson.ADName=client.STRINGVALUE
 		left outer join dimService on dimService.name=serv.STRINGVALUE and dimService.issuetype_uid=dimIssueType.uid
 		left outer join dimPriority on dimPriority.uid=ji.PRIORITY
-group by ji.ID,ji.pkey,ji.SUMMARY,dimPerson.uid,dimService.uid,dimPriority.uid,dimIssueType.uid
+group by ji.ID,ji.pkey,ji.SUMMARY,dimPerson.uid,dimPriority.uid,dimIssueType.uid
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
