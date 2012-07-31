@@ -89,22 +89,29 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>ZEFQEk5naIiF2tpmqRWiQQ==31.05.2012 17:54:2404.04.2012 22:05:20wjP0sw3tEkyDWCx1BiMTDA==31.05.2012 17:42:2004.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>b39Nuk2+QBihKvOCtnVecA==15.06.2012 16:21:0704.04.2012 22:05:20wjP0sw3tEkyDWCx1BiMTDA==31.05.2012 17:42:2004.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>JIRA</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Role</Type>
-        <TimeStamp>zC5MJ4njR1LQfeZM5GCrHA==12.04.2012 13:36:1804.04.2012 22:05:20</TimeStamp>
+        <TimeStamp>QgN7Uwm+7Zkg4/vloQImMw==15.06.2012 15:45:5904.04.2012 22:05:20</TimeStamp>
         <ID>
           <String>Role</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Role</Type>
+        <TimeStamp>z5t/sPLUKYY9fSQGtqI/UQ==15.06.2012 16:21:0715.06.2012 15:27:40</TimeStamp>
+        <ID>
+          <String>Role 1</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>PRtBpdM9x5VLSRcZRwTf2A==12.04.2012 13:36:1804.04.2012 22:05:20</TimeStamp>
+      <TimeStamp>05SFNvce34SFcHwpz0kxxw==15.06.2012 15:29:1604.04.2012 22:05:20</TimeStamp>
       <ID>
         <String>Jira</String>
       </ID>
@@ -113,5 +120,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2012-06-01T08:15:36.026667Z</LastDeployed>
+  <LastDeployed>2012-07-31T08:12:48.516667Z</LastDeployed>
 </DeploymentSnapshot>

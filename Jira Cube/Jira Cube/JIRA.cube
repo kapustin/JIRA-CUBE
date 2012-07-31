@@ -809,6 +809,27 @@
       <Read>Allowed</Read>
       <ReadSourceData>Allowed</ReadSourceData>
     </CubePermission>
+    <CubePermission dwd:design-time-name="50c1d6b0-8b1b-4ff5-903d-04dd0b7546ad">
+      <ID>CubePermission 1</ID>
+      <Name>CubePermission 1</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <RoleID>Role 1</RoleID>
+      <Read>Allowed</Read>
+      <ReadSourceData>Allowed</ReadSourceData>
+      <DimensionPermissions>
+        <DimensionPermission dwd:design-time-name="f65170f8-4253-49b4-ae03-10ce3df2e0b0">
+          <CubeDimensionID>Bonus Type</CubeDimensionID>
+          <Read>Allowed</Read>
+          <AttributePermissions>
+            <AttributePermission dwd:design-time-name="0de55b0b-6582-4c4d-9e92-47ce41a1f50a">
+              <AttributeID>Uid</AttributeID>
+              <DeniedSet>{[Тип бонуса].[Тип бонуса].&amp;[1]}</DeniedSet>
+            </AttributePermission>
+          </AttributePermissions>
+        </DimensionPermission>
+      </DimensionPermissions>
+    </CubePermission>
   </CubePermissions>
   <MeasureGroups>
     <MeasureGroup dwd:design-time-name="8c5b454e-e93e-42d8-a322-f78d4da8c530">

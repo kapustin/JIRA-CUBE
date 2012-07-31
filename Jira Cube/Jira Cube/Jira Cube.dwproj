@@ -69,6 +69,10 @@
       <Name>FullAccess.role</Name>
       <FullPath>FullAccess.role</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>СС.role</Name>
+      <FullPath>СС.role</FullPath>
+    </ProjectItem>
   </Roles>
   <Configurations>
     <Configuration>
