@@ -13,47 +13,17 @@ SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 --
 -------------------------------------
 
-DECLARE @sup_10start date = '2012-03-01';
-DECLARE @sup_20start date = '2012-04-01';
+DECLARE @sup_start date = '2012-03-01';
 
--- 10 рублей с 01/03/2012
 insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 select
 	ISNULL(MAX(dimDate.DateKey),-1),
 	ISNULL(dimPerson.uid,-1),
 	ISNULL(dimIssueType.uid,-1),
 	1,
-	case when count(distinct il.source)-count(distinct ji_dev.id)=0 and count(distinct il.source)>0 then 10/2 
-		when COUNT(distinct il.source)>0 then 10*(4+COUNT(distinct il_dev.destination))/2 
-		else 10 end bonus,
-	ji.ID
-from jiraissue ji
-	join changegroup cg on cg.issueid=ji.id
-	join changeitem ci on ci.groupid=cg.id and field='status'
-	left outer join issuelink il on il.destination=ji.id and il.linktype=10010 --il.source - dev
-	left outer join jiraissue ji_dev on ji_dev.id=il.source and ji_dev.resolution = 2
-	left outer join issuelink il_dev on il_dev.source=il.source and il_dev.linktype=10000
-	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
-	left outer join dimPerson on dimPerson.ADname=ji.assignee
-	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
-where ji.project=10180 
-	and ji.issuetype=33 
-	and ji.resolution=1 
-	and ji.issuestatus=6
-	and cg.CREATED>=@sup_10start and cg.CREATED<@sup_20start
-	and newvalue='6' and oldvalue='5'
-group by ji.id,dimIssueType.uid,dimPerson.uid;
-
--- 20 рублей с 01/04/2012
-insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
-select
-	ISNULL(MAX(dimDate.DateKey),-1),
-	ISNULL(dimPerson.uid,-1),
-	ISNULL(dimIssueType.uid,-1),
-	1,
-	case when count(distinct il.source)-count(distinct ji_dev.id)=0 and count(distinct il.source)>0 then 20/2 
-		when COUNT(distinct ji2.id)>0 then 20*(4+COUNT(distinct il_dev.destination))/2 
-		else 20 end bonus,
+	isnull(case when count(distinct il.source)-count(distinct ji_dev.id)=0 and count(distinct il.source)>0 then qc.multiplier/2 
+		when COUNT(distinct ji2.id)>0 then qc.multiplier*(4+COUNT(distinct il_dev.destination))/2 
+		else qc.multiplier end,0) bonus,
 	ji.ID
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
@@ -65,13 +35,14 @@ from jiraissue ji
 	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
 	left outer join dimPerson on dimPerson.ADname=ji.assignee
 	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
+	left outer join emp_quality_coefficient qc on qc.tabnum=dimPerson.TabNum and cg.CREATED between qc.ddateb and dateadd(dd,1,qc.ddatee)
 where ji.project=10180 
 	and ji.issuetype=33 
 	and ji.resolution=1 
 	and ji.issuestatus=6
-	and cg.CREATED>=@sup_20start
+	and cg.CREATED>=@sup_start
 	and newvalue='6' and oldvalue='5'
-group by ji.id,dimIssueType.uid,dimPerson.uid;
+group by ji.id,dimIssueType.uid,dimPerson.uid,qc.multiplier;
 
 
 
