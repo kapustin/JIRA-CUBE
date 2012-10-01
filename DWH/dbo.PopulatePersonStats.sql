@@ -27,10 +27,11 @@ GROUP BY dimPerson.uid,dimDate.DateKey;
 MERGE INTO dbo.factPersonStats AS Target
 USING (SELECT	ISNULL(dimDate.DateKey,-1) date_uid
 				,ISNULL(dimPerson.uid,-1) person_uid
-				,qc.coefficient quality
+				,max(qc.coefficient) quality
 		FROM emp_quality_coefficient qc
 		JOIN dimDate ON dimDate.FullDate BETWEEN qc.ddateb AND qc.ddatee
-		LEFT OUTER JOIN dimPerson ON dimPerson.TabNum=qc.tabnum) AS Source
+		LEFT OUTER JOIN dimPerson ON dimPerson.TabNum=qc.tabnum
+		GROUP BY dimDate.DateKey,dimPerson.uid) AS Source
 		ON Target.date_uid = Source.date_uid AND Target.person_uid = Source.person_uid
 WHEN MATCHED THEN
 	UPDATE SET quality = Source.quality
