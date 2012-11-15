@@ -1,4 +1,4 @@
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InitDimTables]') AND type in (N'P', N'PC'))
+п»їIF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InitDimTables]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[InitDimTables]
 GO
 CREATE PROCEDURE [dbo].[InitDimTables]
@@ -7,15 +7,16 @@ BEGIN
 SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 
 INSERT INTO dbo.dimPriority (uid,name,description)
-    VALUES (-1,'Не определено','Не определено');
+    VALUES (-1,'РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ','РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ');
 INSERT INTO  dbo.dimIssueStatus (uid,name,description) 
-	VALUES (0,'_Новый','Создание нового запроса');	
+	VALUES (0,'_РќРѕРІС‹Р№','РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ Р·Р°РїСЂРѕСЃР°');
+INSERT INTO  dbo.dimIssueStatus (uid,name,description) 
+	VALUES (-1,'РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ','РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ');	
 INSERT INTO dbo.dimPerson (uid,ADName,ShortName,TabNum,FullName,Position,Department,Division)
-    VALUES (-1,'Не определено','Не определено',-1,'Не определено','Не определено','Не определено','Не определено');
+    VALUES (-1,'РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ','РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ',-1,'РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ','РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ','РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ','РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ');
 INSERT INTO dbo.dimService (context,name)
-    VALUES ('Не определено','Не определено');
+    VALUES ('РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ','РќРµ РѕРїСЂРµРґРµР»РµРЅРѕ');
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 GO
-
