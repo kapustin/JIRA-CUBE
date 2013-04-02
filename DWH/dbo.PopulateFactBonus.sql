@@ -51,6 +51,12 @@ delete from dbo.factBonus
 where exists(select * from dbo.customfieldvalue cfv 
 where factBonus.issueid=cfv.ISSUE and cfv.CUSTOMFIELD=10660 and cfv.STRINGVALUE='Да');
 
+-- пятикратное увеличение бонуса за обращения связанные с WMS и Плакущевым Денисом
+-- CF "Особые отметки" = "WMS"
+UPDATE dbo.factBonus SET bonus = bonus * 5
+WHERE EXISTS(SELECT * FROM dbo.customfieldvalue cfv 
+WHERE factBonus.issueid=cfv.ISSUE AND cfv.CUSTOMFIELD=11040 AND cfv.STRINGVALUE='WMS');
+
 -- расставить коэффициенты качества
 update dbo.factBonus set quality=qc.coefficient
 from dimDate
