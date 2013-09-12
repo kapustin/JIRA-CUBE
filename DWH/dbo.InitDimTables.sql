@@ -38,7 +38,9 @@ INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (9,'Сделка КЦ (Qiwi-claim) переходы','Оплата переходов по претезиям ОСМП');
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (10,'Проекты','Суммы по закрытым проектам');
-
+INSERT INTO dbo.dimBonusType (uid,name,description)
+     VALUES (11,'Сделка КЦ (Выгрузка для ОДБК)','Оплата выгрузки данных для запросов ОДБК');
+     
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 GO
