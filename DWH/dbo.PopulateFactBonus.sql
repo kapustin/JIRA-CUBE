@@ -301,6 +301,33 @@ where ji.project=10280
 	and newvalue='6'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
+-------------------------------------
+--
+--           Проекты
+--
+-------------------------------------
+
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select
+	 ISNULL(MAX(dimDate.DateKey),-1) date_uid
+	,ISNULL(dimPerson.uid,-1) person_uid
+	,ISNULL(dimIssueType.uid,-1) issuetype_uid
+	,10 bonustype_uid
+	,cfv.NUMBERVALUE bonus
+	,ji.ID issueid
+from jiraissue ji
+	join changegroup cg on cg.issueid=ji.id
+	join changeitem ci on ci.groupid=cg.id and field='status'
+	join customfieldvalue cfv on cfv.ISSUE=ji.ID
+	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
+	left outer join dimPerson on dimPerson.ADname=ji.assignee
+	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
+where ji.project=10140 
+	and ji.issuetype=29 
+	and ji.resolution=1 
+	and newvalue='10009'
+	and cfv.CUSTOMFIELD=10135
+group by ji.id,dimIssueType.uid,dimPerson.uid,cfv.NUMBERVALUE;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
