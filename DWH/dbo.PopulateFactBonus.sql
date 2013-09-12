@@ -316,7 +316,6 @@ from jiraissue ji
 	left outer join dimPerson on dimPerson.ADname=cg.AUTHOR
 	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
 where ji.project=10350 
-	and ji.issuetype=62
 	and oldvalue='10054'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
