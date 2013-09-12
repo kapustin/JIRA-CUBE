@@ -12,6 +12,7 @@ DELETE FROM dbo.dimIssueType;
 DELETE FROM dbo.dimIssueStatus;
 DELETE FROM dbo.dimPerson;
 DELETE FROM dbo.dimService;
+DELETE FROM dimBonusType;
 
 
 SET NOCOUNT ON -- turn the annoying messages back on
