@@ -57,6 +57,26 @@ UPDATE dbo.factBonus SET bonus = bonus * 5
 WHERE EXISTS(SELECT * FROM dbo.customfieldvalue cfv 
 WHERE factBonus.issueid=cfv.ISSUE AND cfv.CUSTOMFIELD=11040 AND cfv.STRINGVALUE='WMS');
 
+-- пятикратное увеличение бонуса за обращения с сервисом 'SLA - Выгрузки'
+-- с сентября 2013
+UPDATE dbo.factBonus SET bonus = bonus * 5
+FROM dimDate
+WHERE EXISTS(SELECT * FROM dbo.customfieldvalue cfv 
+WHERE factBonus.issueid=cfv.ISSUE and dimDate.DateKey=dbo.factBonus.date_uid
+		AND cfv.CUSTOMFIELD=10420
+		AND cfv.STRINGVALUE='SLA - Выгрузки')
+		AND dimDate.FullDate >= '2013-09-01';
+		
+-- увеличение бонуса в 1.5 раз за обращения с сервисом 'SLA - Сопоставление операторов'
+-- с сентября 2013
+UPDATE dbo.factBonus SET bonus = bonus * 1.5
+FROM dimDate
+WHERE EXISTS(SELECT * FROM dbo.customfieldvalue cfv 
+WHERE factBonus.issueid=cfv.ISSUE and dimDate.DateKey=dbo.factBonus.date_uid
+		AND cfv.CUSTOMFIELD=10420
+		AND cfv.STRINGVALUE='SLA - Сопоставление операторов')
+		AND dimDate.FullDate >= '2013-09-01';
+
 -- расставить коэффициенты качества
 update dbo.factBonus set quality=qc.coefficient
 from dimDate
