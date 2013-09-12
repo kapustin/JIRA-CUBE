@@ -313,7 +313,7 @@ from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
 	join changeitem ci on ci.groupid=cg.id and field='status'
 	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
-	left outer join dimPerson on dimPerson.ADname=ji.assignee
+	left outer join dimPerson on dimPerson.ADname=cg.AUTHOR
 	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
 where ji.project=10350 
 	and ji.issuetype=62
