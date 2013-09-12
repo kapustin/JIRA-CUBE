@@ -300,6 +300,25 @@ where ji.project=10280
 	and cg.CREATED>='2012-04-01'
 	and newvalue='6'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
+-- Расчет бонуса за выгрузку данных для ОДБК
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select
+	 ISNULL(MAX(dimDate.DateKey),-1) date_uid
+	,ISNULL(dimPerson.uid,-1) person_uid
+	,ISNULL(dimIssueType.uid,-1) issuetype_uid
+	,11 bonustype_uid
+	,20 bonus
+	,ji.ID issueid
+from jiraissue ji
+	join changegroup cg on cg.issueid=ji.id
+	join changeitem ci on ci.groupid=cg.id and field='status'
+	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
+	left outer join dimPerson on dimPerson.ADname=ji.assignee
+	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
+where ji.project=10350 
+	and ji.issuetype=62
+	and oldvalue='10054'
+group by ji.id,dimIssueType.uid,dimPerson.uid;
 
 -------------------------------------
 --
