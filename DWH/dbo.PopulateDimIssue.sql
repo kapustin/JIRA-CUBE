@@ -29,6 +29,14 @@ FROM jiraissue ji
 LEFT OUTER JOIN dimPerson ON dimPerson.ADName=ji.REPORTER
 WHERE ji.ID=dimIssue.uid
 	AND ji.PROJECT=10350	-- ODBK
+	
+-- Заказчиком запроса в проектах КЦ является соответствующий человек
+UPDATE dbo.dimIssue SET client_uid=10160 -- соответсвующий человек
+FROM jiraissue ji
+LEFT OUTER JOIN dimPerson ON dimPerson.ADName=ji.REPORTER
+WHERE ji.ID=dimIssue.uid
+	AND ji.PROJECT in (10280,10311)
+	and dimIssue.client_uid=-1
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
