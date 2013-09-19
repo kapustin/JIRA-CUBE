@@ -23,6 +23,13 @@ FROM jiraissue ji
 		left outer join dimPriority on dimPriority.uid=ji.PRIORITY
 group by ji.ID,ji.pkey,ji.SUMMARY,dimPerson.uid,dimPriority.uid,dimIssueType.uid
 
+-- Заказчиком запроса в проекте ODBK является автор запроса
+UPDATE dbo.dimIssue SET client_uid=ISNULL(dimPerson.uid,-1)  
+FROM jiraissue ji
+LEFT OUTER JOIN dimPerson ON dimPerson.ADName=ji.REPORTER
+WHERE ji.ID=dimIssue.uid
+	AND ji.PROJECT=10350	-- ODBK
+
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 
