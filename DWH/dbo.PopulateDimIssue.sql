@@ -11,13 +11,13 @@ select	 ji.ID
 		,ji.pkey
 		,ji.SUMMARY info
 		,ISNULL(dimPerson.uid,-1) client_uid
-		,ISNULL(MAX(dimService.uid),(SELECT uid FROM dimService WHERE name='Не определено'e_uid -- Нужно исправить
+		,ISNULL(MAX(dimService.uid),(SELECT uid FROM dimService WHERE name='Не определено')) service_uid -- Нужно исправить
 		,ISNULL(dimPriority.uid,-1) priority_uid
 		,ISNULL(dimIssueType.uid,-1) issuetype_uid
 FROM jiraissue ji
 		left outer join dimIssueType on dimIssueType.project_id=ji.PROJECT and dimIssueType.issuetype_id=ji.issuetype
 		left outer join customfieldvalue client on ji.ID=client.ISSUE and client.CUSTOMFIELD=10146
-		left outer join customfieldvalue serv on ji.ID=serv.ISSUE and serv.CUSTOMFIELD in (select id from customfield where cfname='Сервис'
+		left outer join customfieldvalue serv on ji.ID=serv.ISSUE and serv.CUSTOMFIELD in (select id from customfield where cfname='Сервис')
 		left outer join dimPerson on dimPerson.ADName=client.STRINGVALUE
 		left outer join dimService on dimService.name=serv.STRINGVALUE and dimService.issuetype_uid=dimIssueType.uid
 		left outer join dimPriority on dimPriority.uid=ji.PRIORITY
