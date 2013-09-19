@@ -84,6 +84,26 @@ join emp_quality_coefficient qc on dimDate.FullDate between qc.ddateb and qc.dda
 join dimPerson on dimPerson.TabNum=qc.tabnum
 where dimDate.DateKey=dbo.factBonus.date_uid and dimPerson.uid=dbo.factBonus.person_uid
 
+-- бонус за выгрузку данных в запросах ОДБК
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select
+	 ISNULL(MAX(dimDate.DateKey),-1) date_uid
+	,ISNULL(dimPerson.uid,-1) person_uid
+	,ISNULL(dimIssueType.uid,-1) issuetype_uid
+	,11 bonustype_uid
+	,40 bonus
+	,ji.ID issueid
+from jiraissue ji
+	join changegroup cg on cg.issueid=ji.id
+	join changeitem ci on ci.groupid=cg.id and field='status'
+	join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
+	join dimPerson on dimPerson.ADname=cg.AUTHOR and dimPerson.Department='Отдел ИТ-поддержки'
+	join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
+where ji.project=10350 
+	and ci.oldvalue='10054'
+	and dimDate.FullDate > '2013-09-01'
+group by ji.id,dimIssueType.uid,dimPerson.uid;
+
 -------------------------------------
 --
 --           БОНУС КЦ
@@ -312,11 +332,11 @@ select
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
 	join changeitem ci on ci.groupid=cg.id and field='status'
-	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
-	left outer join dimPerson on dimPerson.ADname=cg.AUTHOR
-	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
+	join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
+	join dimPerson on dimPerson.ADname=cg.AUTHOR and dimPerson.Department='Техподдержка ОСМП'
+	join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
 where ji.project=10350 
-	and oldvalue='10054'
+	and ci.oldvalue='10054'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
 -------------------------------------
