@@ -16,6 +16,8 @@ TRUNCATE TABLE dbo.emp_quality_coefficient;
 TRUNCATE TABLE dbo.entrance;
 TRUNCATE TABLE dbo.emp_schedule;
 TRUNCATE TABLE dbo.ddate;
+TRUNCATE TABLE dbo.emp_dutyroster;
+TRUNCATE TABLE dbo.emp_dutytype;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
