@@ -104,6 +104,34 @@ where ji.project=10350
 	and dimDate.FullDate > '2013-09-01'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
+-- Дежурство
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select	 dimDate.DateKey
+		,dimPerson.uid
+		,-1
+		,12
+		,case	when ddate.day_type='Р' and max(ji.ID) is null then 420
+				when ddate.day_type='Р' and max(ji.ID) is not null then 600
+				when ddate.day_type<>'Р' and max(ji.ID) is null then 1000
+				when ddate.day_type<>'Р' and max(ji.ID) is not null then 1500
+		end bonus
+		,-1
+		
+from ddate 
+join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
+left outer join dimDate on dimDate.FullDate = ddate.ddate
+left outer join dimPerson on dimPerson.TabNum = dr.person_id
+left outer join jiraissue ji on ji.CREATED between	DATEADD(hour,9, CONVERT(smalldatetime,ddate.ddate)) and
+													DATEADD(hour,33, CONVERT(smalldatetime,ddate.ddate))
+											and exists (select*from customfieldvalue cfv 
+															where cfv.CUSTOMFIELD = 10550 
+																and cfv.STRINGVALUE='Есть'
+																and cfv.ISSUE=ji.ID)
+											and dimPerson.ADName = ji.REPORTER
+group by dimDate.DateKey,dimPerson.uid,ddate.day_type
+order by 1
+
+
 -------------------------------------
 --
 --           БОНУС КЦ
