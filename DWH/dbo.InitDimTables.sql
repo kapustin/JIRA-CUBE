@@ -51,6 +51,10 @@ INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (10,'Проекты','Суммы по закрытым проектам');
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (11,'Сделка КЦ (Выгрузка для ОДБК)','Оплата выгрузки данных для запросов ОДБК');
+INSERT INTO dbo.dimBonusType (uid,name,description)
+     VALUES (12,'Дежурный 5005 (Дни)','Бонус за ношение дежурного телефона');
+INSERT INTO dbo.dimBonusType (uid,name,description)
+     VALUES (13,'Дежурный 5005 (Обращения)','Бонус за работу дежурного');
      
 SET NOCOUNT ON -- turn the annoying messages back on
 END
