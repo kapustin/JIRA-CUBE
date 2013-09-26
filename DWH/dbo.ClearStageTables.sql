@@ -18,6 +18,7 @@ TRUNCATE TABLE dbo.emp_schedule;
 TRUNCATE TABLE dbo.ddate;
 TRUNCATE TABLE dbo.emp_dutyroster;
 TRUNCATE TABLE dbo.emp_dutytype;
+TRUNCATE TABLE dbo.jiraworklog;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
