@@ -122,7 +122,7 @@ join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
 left outer join dimDate on dimDate.FullDate = ddate.ddate
 left outer join dimPerson on dimPerson.TabNum = dr.person_id
 left outer join jiraissue ji on ji.CREATED between	DATEADD(hour,9, CONVERT(smalldatetime,ddate.ddate)) and
-							DATEADD(hour,33, CONVERT(smalldatetime,ddate.ddate))
+							DATEADD(hour,32, CONVERT(smalldatetime,ddate.ddate))
 						and exists (select*from customfieldvalue cfv 
 								where cfv.CUSTOMFIELD = 10550 
 									and cfv.STRINGVALUE='Есть'
@@ -144,7 +144,7 @@ select	 dimDate.DateKey
 from ddate 
 join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
 join jiraworklog wl on wl.startdate between	DATEADD(hour,9, CONVERT(smalldatetime,ddate.ddate)) and
-						DATEADD(hour,33, CONVERT(smalldatetime,ddate.ddate))
+						DATEADD(hour,32, CONVERT(smalldatetime,ddate.ddate))
 					and exists (select * from jiraissue ji join customfieldvalue cfv on cfv.ISSUE=ji.ID
 							where  cfv.CUSTOMFIELD = 10550 and cfv.STRINGVALUE='Есть'
 								and ji.ID = wl.issueid)
