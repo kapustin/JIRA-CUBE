@@ -104,7 +104,7 @@ where ji.project=10350
 	and dimDate.FullDate > '2013-09-01'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
--- Дежурство
+-- Дежурство дни
 insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 select	 dimDate.DateKey
 		,dimPerson.uid
@@ -122,14 +122,39 @@ join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
 left outer join dimDate on dimDate.FullDate = ddate.ddate
 left outer join dimPerson on dimPerson.TabNum = dr.person_id
 left outer join jiraissue ji on ji.CREATED between	DATEADD(hour,9, CONVERT(smalldatetime,ddate.ddate)) and
-													DATEADD(hour,33, CONVERT(smalldatetime,ddate.ddate))
-											and exists (select*from customfieldvalue cfv 
-															where cfv.CUSTOMFIELD = 10550 
-																and cfv.STRINGVALUE='Есть'
-																and cfv.ISSUE=ji.ID)
-											and dimPerson.ADName = ji.REPORTER
+							DATEADD(hour,33, CONVERT(smalldatetime,ddate.ddate))
+						and exists (select*from customfieldvalue cfv 
+								where cfv.CUSTOMFIELD = 10550 
+									and cfv.STRINGVALUE='Есть'
+									and cfv.ISSUE=ji.ID)
+						and dimPerson.ADName = ji.REPORTER
 group by dimDate.DateKey,dimPerson.uid,ddate.day_type
 order by 1
+
+-- Дежурство ворклоги
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select	 dimDate.DateKey
+		,dimPerson.uid
+		,dimIssue.issuetype_uid
+		,13 bonustype_uid
+		,sum(case when DATEPART(hour,wl.startdate) >= 9 and  DATEPART(hour,wl.startdate) < 23 then round(wl.timeworked/3600*600,0)
+			when DATEPART(hour,wl.startdate) < 9 or  DATEPART(hour,wl.startdate) >= 23 then round(wl.timeworked/3600*1200,0)
+		 end) bonus
+		,dimIssue.uid 
+from ddate 
+join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
+join jiraworklog wl on wl.startdate between	DATEADD(hour,9, CONVERT(smalldatetime,ddate.ddate)) and
+						DATEADD(hour,33, CONVERT(smalldatetime,ddate.ddate))
+					and exists (select * from jiraissue ji join customfieldvalue cfv on cfv.ISSUE=ji.ID
+							where  cfv.CUSTOMFIELD = 10550 and cfv.STRINGVALUE='Есть'
+								and ji.ID = wl.issueid)
+left outer join dimDate on dimDate.FullDate = ddate.ddate
+left outer join dimPerson on dimPerson.ADName=wl.author
+left outer join dimIssue on dimIssue.uid = wl.issueid
+group by dimDate.DateKey
+		,dimPerson.uid
+		,dimIssue.issuetype_uid
+		,dimIssue.uid
 
 
 -------------------------------------
