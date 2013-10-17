@@ -129,8 +129,8 @@ left outer join jiraissue ji on ji.CREATED between	DATEADD(HOUR,9, CONVERT(datet
 									and cfv.STRINGVALUE='Есть'
 									and cfv.ISSUE=ji.ID)
 						and dimPerson.ADName = ji.REPORTER
-WHERE ji.PROJECT = 10180 -- ИТ-поддержка
-	and dr.dutytype=1 -- Круглосуточная ТП
+						and ji.PROJECT = 10180 -- ИТ-поддержка
+WHERE dr.dutytype=1 -- Круглосуточная ТП
 group by dimDate.DateKey,dimPerson.uid,ddate.day_type
 order by 1
 
@@ -161,7 +161,7 @@ group by dimDate.DateKey
 		,dimIssue.issuetype_uid
 		,dimIssue.uid
 
--- Рассчет дежурства ИТ-поддержки
+-- Рассчет дежурства Инфраструктуры
 -- Дежурство дни
 insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 select	 dimDate.DateKey
@@ -185,8 +185,8 @@ left outer join jiraissue ji on ji.CREATED between	DATEADD(HOUR,9, CONVERT(datet
 									and cfv.STRINGVALUE='Есть'
 									and cfv.ISSUE=ji.ID)
 						and dimPerson.ADName = ji.REPORTER
-WHERE ji.PROJECT = 10070 -- Инфраструктура
-	and dr.dutytype=2 -- Дежурство ИС
+						and ji.PROJECT = 10070 -- Инфраструктура
+WHERE dr.dutytype=2 -- Дежурство ИС
 group by dimDate.DateKey,dimPerson.uid,ddate.day_type
 order by 1
 
