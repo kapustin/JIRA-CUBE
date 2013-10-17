@@ -104,6 +104,7 @@ where ji.project=10350
 	and dimDate.FullDate > '2013-09-01'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
+-- Рассчет дежурства ИТ-поддержки
 -- Дежурство дни
 insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 select	 dimDate.DateKey
@@ -160,7 +161,62 @@ group by dimDate.DateKey
 		,dimIssue.issuetype_uid
 		,dimIssue.uid
 
+-- Рассчет дежурства ИТ-поддержки
+-- Дежурство дни
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select	 dimDate.DateKey
+		,dimPerson.uid
+		,-1
+		,14
+		,case	when max(ji.ID) is null then 350
+				when max(ji.ID) is not null then 500
+		end bonus
+		,-1
+		
+from ddate 
+join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
 
+left outer join dimDate on dimDate.FullDate = ddate.ddate
+left outer join dimPerson on dimPerson.TabNum = dr.person_id
+left outer join jiraissue ji on ji.CREATED between	DATEADD(HOUR,9, CONVERT(datetime,ddate.ddate)) and
+							DATEADD(SECOND,-1,DATEADD(hour,33, CONVERT(datetime,ddate.ddate)))
+						and exists (select*from customfieldvalue cfv 
+								where cfv.CUSTOMFIELD = 10550 
+									and cfv.STRINGVALUE='Есть'
+									and cfv.ISSUE=ji.ID)
+						and dimPerson.ADName = ji.REPORTER
+WHERE ji.PROJECT = 10070 -- Инфраструктура
+	and dr.dutytype=2 -- Дежурство ИС
+group by dimDate.DateKey,dimPerson.uid,ddate.day_type
+order by 1
+
+-- Дежурство ворклоги
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select	 dimDate.DateKey
+		,dimPerson.uid
+		,dimIssue.issuetype_uid
+		,15 bonustype_uid
+		,sum(case when DATEPART(hour,wl.startdate) >= 9 and  DATEPART(hour,wl.startdate) < 23 then round(wl.timeworked/3600*500,0)
+			when DATEPART(hour,wl.startdate) < 9 or  DATEPART(hour,wl.startdate) >= 23 then round(wl.timeworked/3600*1000,0)
+		 end) bonus
+		,dimIssue.uid 
+from ddate 
+join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
+join jiraworklog wl on wl.startdate between	DATEADD(HOUR,9, CONVERT(datetime,ddate.ddate)) and
+						DATEADD(SECOND,-1,DATEADD(hour,33, CONVERT(datetime,ddate.ddate)))
+					and exists (select * from jiraissue ji join customfieldvalue cfv on cfv.ISSUE=ji.ID
+							where  cfv.CUSTOMFIELD = 10550 and cfv.STRINGVALUE='Есть'
+								and ji.PROJECT = 10070 -- Инфраструктура
+								and ji.ID = wl.issueid)
+left outer join dimDate on dimDate.FullDate = ddate.ddate
+left outer join dimPerson on dimPerson.ADName=wl.author
+left outer join dimIssue on dimIssue.uid = wl.issueid
+WHERE dr.dutytype=2 -- Дежурство ИС
+group by dimDate.DateKey
+		,dimPerson.uid
+		,dimIssue.issuetype_uid
+		,dimIssue.uid
+		
 -------------------------------------
 --
 --           БОНУС КЦ
