@@ -128,6 +128,8 @@ left outer join jiraissue ji on ji.CREATED between	DATEADD(HOUR,9, CONVERT(datet
 									and cfv.STRINGVALUE='Есть'
 									and cfv.ISSUE=ji.ID)
 						and dimPerson.ADName = ji.REPORTER
+WHERE ji.PROJECT = 10180 -- ИТ-поддержка
+	and dr.dutytype=1 -- Круглосуточная ТП
 group by dimDate.DateKey,dimPerson.uid,ddate.day_type
 order by 1
 
@@ -147,10 +149,12 @@ join jiraworklog wl on wl.startdate between	DATEADD(HOUR,9, CONVERT(datetime,dda
 						DATEADD(SECOND,-1,DATEADD(hour,33, CONVERT(datetime,ddate.ddate)))
 					and exists (select * from jiraissue ji join customfieldvalue cfv on cfv.ISSUE=ji.ID
 							where  cfv.CUSTOMFIELD = 10550 and cfv.STRINGVALUE='Есть'
+								and ji.PROJECT = 10180 -- ИТ-поддержка
 								and ji.ID = wl.issueid)
 left outer join dimDate on dimDate.FullDate = ddate.ddate
 left outer join dimPerson on dimPerson.ADName=wl.author
 left outer join dimIssue on dimIssue.uid = wl.issueid
+WHERE dr.dutytype=1 -- Круглосуточная ТП
 group by dimDate.DateKey
 		,dimPerson.uid
 		,dimIssue.issuetype_uid
