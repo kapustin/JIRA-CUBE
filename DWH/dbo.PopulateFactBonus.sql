@@ -168,8 +168,8 @@ select	 dimDate.DateKey
 		,dimPerson.uid
 		,-1
 		,14
-		,case	when max(ji.ID) is null then 350
-				when max(ji.ID) is not null then 500
+		,case	when max(wl.ID) is null then 350
+				when max(wl.ID) is not null then 500
 		end bonus
 		,-1
 		
@@ -178,14 +178,13 @@ join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
 
 left outer join dimDate on dimDate.FullDate = ddate.ddate
 left outer join dimPerson on dimPerson.TabNum = dr.person_id
-left outer join jiraissue ji on ji.CREATED between	DATEADD(HOUR,9, CONVERT(datetime,ddate.ddate)) and
-							DATEADD(SECOND,-1,DATEADD(hour,33, CONVERT(datetime,ddate.ddate)))
-						and exists (select*from customfieldvalue cfv 
-								where cfv.CUSTOMFIELD = 10550 
-									and cfv.STRINGVALUE='Есть'
-									and cfv.ISSUE=ji.ID)
-						and dimPerson.ADName = ji.REPORTER
-						and ji.PROJECT = 10070 -- Инфраструктура
+left outer join jiraworklog wl on wl.startdate between	DATEADD(HOUR,9, CONVERT(datetime,ddate.ddate)) and
+						DATEADD(SECOND,-1,DATEADD(hour,33, CONVERT(datetime,ddate.ddate)))
+					and exists (select * from jiraissue ji join customfieldvalue cfv on cfv.ISSUE=ji.ID
+							where  cfv.CUSTOMFIELD = 10550 and cfv.STRINGVALUE='Есть'
+								and ji.PROJECT = 10070 -- Инфраструктура
+								and ji.ID = wl.issueid)
+						and dimPerson.ADName = wl.AUTHOR
 WHERE dr.dutytype=2 -- Дежурство ИС
 group by dimDate.DateKey,dimPerson.uid,ddate.day_type
 order by 1
