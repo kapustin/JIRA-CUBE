@@ -77,6 +77,16 @@ WHERE factBonus.issueid=cfv.ISSUE and dimDate.DateKey=dbo.factBonus.date_uid
 		AND cfv.STRINGVALUE='SLA - Сопоставление операторов')
 		AND dimDate.FullDate >= '2013-09-01';
 
+-- увеличение бонуса в 10 раз за обращения с сервисом 'SLA - Сопоставление операторов'
+-- с ноября 2013
+UPDATE dbo.factBonus SET bonus = bonus * 10
+FROM dimDate
+WHERE EXISTS(SELECT * FROM dbo.customfieldvalue cfv 
+WHERE factBonus.issueid=cfv.ISSUE and dimDate.DateKey=dbo.factBonus.date_uid
+		AND cfv.CUSTOMFIELD=10420
+		AND cfv.STRINGVALUE='SLA - Отчетность ОБ')
+		AND dimDate.FullDate >= '2013-11-01';
+
 -- расставить коэффициенты качества
 update dbo.factBonus set quality=qc.coefficient
 from dimDate
