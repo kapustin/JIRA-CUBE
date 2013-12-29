@@ -15,23 +15,18 @@ SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 
 DECLARE @sup_start date = '2012-03-01';
 
+-- рассчет базового бонуса
 insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 select
 	ISNULL(MAX(dimDate.DateKey),-1),
 	ISNULL(dimPerson.uid,-1),
 	ISNULL(dimIssueType.uid,-1),
 	1,
-	isnull(case when count(distinct il.source)-count(distinct ji_dev.id)=0 and count(distinct il.source)>0 then qc.multiplier/2 
-		when COUNT(distinct ji2.id)>0 then qc.multiplier*(4+COUNT(distinct il_dev.destination))/2 
-		else qc.multiplier end,0) bonus,
+	isnull(qc.multiplier, 0) bonus,
 	ji.ID
 from jiraissue ji
 	join changegroup cg on cg.issueid=ji.id
 	join changeitem ci on ci.groupid=cg.id and field='status'
-	left outer join issuelink il on il.destination=ji.id and il.linktype=10010 --il.source - dev
-	left outer join jiraissue ji_dev on ji_dev.id=il.source and ji_dev.resolution = 2
-	left outer join jiraissue ji2 on ji2.id=il.source and ji2.REPORTER=ji.assignee
-	left outer join issuelink il_dev on il_dev.source=il.source and il_dev.linktype=10000
 	left outer join dimDate on dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, cg.created))
 	left outer join dimPerson on dimPerson.ADname=ji.assignee
 	left outer join dimIssueType on dimIssueType.issuetype_id=ji.issuetype and dimIssueType.project_id=ji.PROJECT
@@ -44,7 +39,24 @@ where ji.project=10180
 	and newvalue='6' and oldvalue='5'
 group by ji.id,dimIssueType.uid,dimPerson.uid,qc.multiplier;
 
-
+-- Изменение бонуса по связанным запросам
+UPDATE dbo.factBonus SET bonus = a.new_bonus
+FROM (
+	SELECT	fb.issueid,  
+			isnull(case when count(distinct il.source)-count(distinct declined_dev.id)=0 and count(distinct il.source)>0 then bonus/2 
+					when COUNT(distinct authored_dev.id)>0 then bonus*(4+isnull(SUM(len(subtask.summary) - len(replace(subtask.summary,',','')) + 1),0))/2 
+					else bonus end,0) new_bonus
+	FROM factBonus fb
+		join dimPerson on dimPerson.uid=fb.person_uid
+		join issuelink il on il.destination=fb.issueid and il.linktype=10010 --il.source - dev
+		left outer join jiraissue declined_dev on declined_dev.id=il.source and declined_dev.resolution = 2
+		left outer join jiraissue authored_dev on authored_dev.id=il.source and authored_dev.REPORTER=dimPerson.ADName and authored_dev.resolution <> 2
+		left outer join issuelink il_dev on il_dev.source=il.source and il_dev.linktype=10000 -- li_dev.destination - subtasks
+		left outer join jiraissue subtask on subtask.id=il_dev.destination
+	WHERE fb.bonustype_uid = 1
+	GROUP BY fb.issueid, fb.bonus
+	) a
+WHERE a.issueid = factBonus.issueid
 
 -- удалить обращения с установленым CF "Повторное обращение" в "Да"
 delete from dbo.factBonus
