@@ -27,7 +27,7 @@ SET IDENTITY_INSERT dimIssueType OFF;
 
 INSERT INTO  dbo.dimIssue (uid, pkey, info, client_uid, service_uid, priority_uid,issuetype_uid) 
 VALUES (-1,'N/A','Не определено',-1,-1,-1,-1);
-    
+
 -- Наполнение измерения 'Тип бонуса'
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (1,'Сделка ИТ-поддержки','Обращения пользователей в ИТ-подержку');
