@@ -126,6 +126,14 @@ where ji.project=10350
 	and dimDate.FullDate > '2013-09-01'
 group by ji.id,dimIssueType.uid,dimPerson.uid;
 
+
+-------------------------------------
+--
+--           ДЕЖУРСТВО
+--
+-------------------------------------
+
+
 -- Рассчет дежурства ИТ-поддержки
 -- Дежурство дни
 insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
@@ -237,7 +245,24 @@ group by dimDate.DateKey
 		,dimPerson.uid
 		,dimIssue.issuetype_uid
 		,dimIssue.uid
-		
+
+-- Рассчет дежурства Поддержки банка
+-- Дежурство дни
+insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+select         dimDate.DateKey
+                ,dimPerson.uid
+                ,-1
+                ,16
+                ,2500 bonus
+                ,-1
+from ddate 
+join emp_dutyroster dr on ddate.ddate between dr.ddateb and dr.ddatee
+left outer join dimDate on dimDate.FullDate = ddate.ddate
+left outer join dimPerson on dimPerson.TabNum = dr.person_id
+WHERE dr.dutytype=3 -- Дежурство Поддержки банка
+group by dimDate.DateKey,dimPerson.uid,ddate.day_type
+order by 1
+
 -------------------------------------
 --
 --           БОНУС КЦ
