@@ -6,7 +6,6 @@ AS
 BEGIN
 SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 
-
 -------------------------------------
 --
 --     Сделка в ИТ-поддержки
