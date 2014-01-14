@@ -59,6 +59,8 @@ INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (14,'Дежурство ИС (Дни)','Бонус за ношение дежурного телефона');
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (15,'Дежурство ИС (Ворклоги)','Бонус за работу дежурного');
+INSERT INTO dbo.dimBonusType (uid,name,description)
+     VALUES (16,'Дежурство Поддержки банка','Бонус за работу дежурного');
      
 SET NOCOUNT ON -- turn the annoying messages back on
 END
