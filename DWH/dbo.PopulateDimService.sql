@@ -16,6 +16,24 @@ SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 	where val.CUSTOMFIELD in (select id from customfield where cfname='Сервис')
 	group by it.project_name,it.uid,it.issuetype_name,val.STRINGVALUE
 	order by 1,3;
+	
+--	Сервисы разработки (компоненты)
+	insert into dbo.dimService (context,issuetype_uid,name)
+	select context,issuetype_uid,name 
+	from (select distinct 'Разработка ПО' context, -1 issuetype_uid, 
+						rtrim((select  c.cname + ' ' 
+							from nodeassociation node                                 
+							join component c on  c.id = node.SINK_NODE_ID
+								and node.SINK_NODE_ENTITY = 'Component'
+							where node.SOURCE_NODE_ENTITY = 'Issue'
+								and node.SOURCE_NODE_ID = jiraissue.ID
+	
+							order by c.cname
+							FOR XML PATH ('')
+							)) name
+		from jiraissue
+		where PROJECT = 10030) t
+	where name is not null;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
