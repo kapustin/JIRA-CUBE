@@ -73,6 +73,21 @@ where cfv.CUSTOMFIELD in (select id from customfield where cfname='Сервис'
 	and cfv.ISSUE=factTransition.issueid 
 	and srv.issuetype_uid=factTransition.issuetype_uid;
 
+-- Сервис запросов разработки - комбинация компонентов
+UPDATE dbo.factTransition SET service_uid=ISNULL(dimService.uid,-1)  
+FROM jiraissue
+LEFT OUTER JOIN dimService ON dimService.name=rtrim((select c.cname + ' ' 
+                                                        from nodeassociation node
+                                                                join component c on c.id = node.SINK_NODE_ID
+                                                                and node.SINK_NODE_ENTITY = 'Component'
+                                                        where node.SOURCE_NODE_ENTITY = 'Issue'
+                                                                and node.SOURCE_NODE_ID = jiraissue.ID
+                                                        order by c.cname
+                                                        FOR XML PATH ('')
+                                                        )) and dimService.context='Разработка ПО'
+WHERE jiraissue.ID=factTransition.issueid
+        AND jiraissue.PROJECT=10030        -- DEV
+
 COMMIT TRANSACTION trn;
 
 SET NOCOUNT ON -- turn the annoying messages back on
