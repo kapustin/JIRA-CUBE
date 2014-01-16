@@ -38,6 +38,21 @@ WHERE ji.ID=dimIssue.uid
 	AND ji.PROJECT in (10280,10311)
 	and dimIssue.client_uid=-1
 
+-- Сервис запросов разработки - комбинация компонентов
+UPDATE dbo.dimIssue SET service_uid=ISNULL(dimService.uid,-1)  
+FROM jiraissue
+LEFT OUTER JOIN dimService ON dimService.name=rtrim((select c.cname + ' ' 
+							from nodeassociation node
+								join component c on c.id = node.SINK_NODE_ID
+								and node.SINK_NODE_ENTITY = 'Component'
+							where node.SOURCE_NODE_ENTITY = 'Issue'
+								and node.SOURCE_NODE_ID = jiraissue.ID
+							order by c.cname
+							FOR XML PATH ('')
+							)) and dimService.context='Разработка ПО'
+WHERE jiraissue.ID=dimIssue.uid
+        AND jiraissue.PROJECT=10030        -- DEV
+
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 
