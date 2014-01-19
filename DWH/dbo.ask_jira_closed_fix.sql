@@ -20,7 +20,8 @@ BEGIN
             new_summ    	decimal(18,4), 
             col_base    	decimal(18,4),
             parent_issueid 	int,
-            issuetype       int
+            issuetype       int,
+            bonustype_uid   int
     )
     
 
@@ -29,14 +30,16 @@ BEGIN
         priority    ,
         assignee    ,
         summary     ,
-        ddate
+        ddate       ,
+        bonustype_uid 
     )
     select
 			i.id             issueid,
             i.PRIORITY       priority,
             i.ASSIGNEE       assignee ,
             i.SUMMARY        summary,
-            cg.CREATED       ddate
+            cg.CREATED       ddate,
+            17
 	from
 	            dbo.jiraissue i
 				join dbo.changegroup cg on i.ID = cg.issueid
@@ -172,7 +175,55 @@ BEGIN
 	where
 			il.DESTINATION = #t.issueid and 
 			il.LINKTYPE = 10000	
-				
+					  		
+    update
+   	  		#t
+   	  set 		
+   	  		num_col = cfv.numbervalue
+   	  from
+   	        dbo.customfieldvalue cfv  		   
+   	  where
+   	  		cfv.issue = #t.issueid and 
+   	  		cfv.CUSTOMFIELD = 11030
+   	  		  	
+   	insert into #t
+   	(
+    	issueid     ,
+    	parent_issueid,
+        ddate       ,
+        new_summ	,
+        bonustype_uid 
+    )
+    select
+			i.id             issueid,
+			i.id             parent_issueid,
+            cg.CREATED       ddate,
+            350,
+            18
+	from
+	        dbo.jiraissue i
+			join dbo.changegroup cg on i.ID = cg.issueid
+			join dbo.changeitem ci  on cg.id = ci.groupid 
+	where
+			i.issuetype in ( 1, 2, 9 ) and
+			i.project = 10030 and
+			ci.FIELD = 'status' and
+			convert(varchar(255), ci.newvalue) in ('5', '6', '10007', '10004')
+			    
+	  	
+   	delete #t where bonustype_uid = 18 and exists( select 1 from #t tt where tt.bonustype_uid = 18 and tt.issueid = #t.issueid and tt.ddate < #t.ddate)
+	
+    update
+   	  		#t
+   	   set 		
+			assignee = cf.STRINGVALUE
+	  from
+	  		dbo.customfieldvalue cf 	
+	 where
+	 		#t.bonustype_uid 	= 18 			and  	
+	 		cf.ISSUE 			= #t.issueid 	and
+	 		cf.CUSTOMFIELD 		= 10170
+	 		
 	update
 			#t
 	set
@@ -183,33 +234,25 @@ BEGIN
 	where
 			node.SOURCE_NODE_ID     =  #t.parent_issueid and
 			node.SOURCE_NODE_ENTITY = 'Issue' and 
-			c.cname = 'Spree'
-	  		
-    update
-   	  		#t
-   	  set 		
-   	  		num_col = cfv.numbervalue
-   	  from
-   	        dbo.customfieldvalue cfv  		   
-   	  where
-   	  		cfv.issue = #t.issueid and 
-   	  		cfv.CUSTOMFIELD = 11030
-   	  		
-    update
+			c.cname = 'Spree' 			
+			
+	update
    	  		#t
    	   set 		
    	  		new_summ = new_summ + num_col*col_base
    	 where
-   	   		num_col > 0 and col_base > 0
+   	   		num_col > 0 and col_base > 0 and bonustype_uid = 17
    	   		
     update
    	  		#t
    	   set 		
    	  		new_summ = new_summ * k
-   	  		
+ 	 where
+ 	 		bonustype_uid = 17
+ 	 			
     update
    	  		#t
-   	   set 		
+   	set 		
    	  		issuetype = i.issuetype
    	from
 	        dbo.jiraissue i
@@ -223,7 +266,7 @@ BEGIN
 	         ISNULL(MAX(dimDate.DateKey),-1) date_uid,
 	         ISNULL(dimPerson.uid,-1) person_uid,
 	         ISNULL(dimIssueType.uid,-1) issuetype_uid,
-	         17 bonustype_uid,
+	         #t.bonustype_uid,
 	         sum(#t.new_summ) bonus,
 	         #t.parent_issueid issueid
 	from #t
@@ -231,7 +274,7 @@ BEGIN
 	        left outer join dimPerson on dimPerson.ADname = #t.assignee
 	        left outer join dimIssueType on dimIssueType.issuetype_id = #t.issuetype and dimIssueType.project_id = 10030
 	where #t.new_summ > 0
-	group by #t.parent_issueid, dimPerson.uid, dimIssueType.uid;
+	group by #t.parent_issueid, dimPerson.uid, dimIssueType.uid, #t.bonustype_uid;
 	  		   	  		   	  		
    	
 end
