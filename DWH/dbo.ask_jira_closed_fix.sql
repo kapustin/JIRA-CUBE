@@ -263,8 +263,8 @@ BEGIN
 					
    	
    	insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
-	select
-	         ISNULL(MAX(dimDate.DateKey),-1) date_uid,
+	select 
+	         ISNULL(dimDate.DateKey,-1) date_uid,
 	         ISNULL(dimPerson.uid,-1) person_uid,
 	         ISNULL(dimIssueType.uid,-1) issuetype_uid,
 	         #t.bonustype_uid,
@@ -275,7 +275,7 @@ BEGIN
 	        left outer join dimPerson on dimPerson.ADname = #t.assignee
 	        left outer join dimIssueType on dimIssueType.issuetype_id = #t.issuetype and dimIssueType.project_id = 10030
 	where #t.new_summ > 0
-	group by #t.parent_issueid, dimPerson.uid, dimIssueType.uid, #t.bonustype_uid;
-	  		   	  		   	  		
+	group by #t.parent_issueid, dimPerson.uid, dimIssueType.uid, #t.bonustype_uid, dimDate.DateKey;
    	
 end
+
