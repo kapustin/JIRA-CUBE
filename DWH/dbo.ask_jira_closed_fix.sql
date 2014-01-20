@@ -224,6 +224,8 @@ BEGIN
 	 		cf.ISSUE 			= #t.issueid 	and
 	 		cf.CUSTOMFIELD 		= 10170
 	 		
+	delete #t where assignee is null and bonustype_uid 	= 18
+	 		
 	update
 			#t
 	set
@@ -277,4 +279,3 @@ BEGIN
 	  		   	  		   	  		
    	
 end
-
