@@ -532,6 +532,13 @@ where ji.project=10140
 	
 group by ji.id,dimIssueType.uid,pers.uid,subpers.uid;
 
+-------------------------------------
+--
+--           Бонусы разработчиков
+--
+-------------------------------------
+execute dbo.ask_jira_closed_fix;
+
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 
