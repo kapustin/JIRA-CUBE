@@ -258,10 +258,9 @@ BEGIN
 	        dbo.jiraissue i
 	where
 			#t.parent_issueid = i.id
-				
-   	delete dbo.factBonusDev		
+					
    	
-   	insert into dbo.factBonusDev (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+   	insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 	select
 	         ISNULL(MAX(dimDate.DateKey),-1) date_uid,
 	         ISNULL(dimPerson.uid,-1) person_uid,
@@ -278,3 +277,4 @@ BEGIN
 	  		   	  		   	  		
    	
 end
+
