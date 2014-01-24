@@ -30,31 +30,31 @@ VALUES (-1,'N/A','Не определено',-1,-1,-1,-1);
 
 -- Наполнение измерения 'Тип бонуса'
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (1,'Сделка ИТ-поддержки','Обращения пользователей в ИТ-подержку');
+     VALUES (1,'ИТ-поддержка сделка','Обращения пользователей в ИТ-подержку');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (2,'Сделка КЦ (Инцидент)','Обращения клиентов на terminal@oceanbanc.ru');
+     VALUES (2,'КЦ - Сделка (Инцидент)','Обращения клиентов на terminal@oceanbanc.ru');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (3,'Сделка КЦ (Qiwi-claim) закрытие','Оплата закрытия претензий ОСМП');
+     VALUES (3,'КЦ - Сделка (Qiwi-claim) закрытие','Оплата закрытия претензий ОСМП');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (4,'Сделка КЦ (Платеж)','Оплата закрытых заявок типа Платежи');
+     VALUES (4,'КЦ - Сделка (Платеж)','Оплата закрытых заявок типа Платежи');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (5,'Сделка КЦ (Субдилер)','Оплата закрытых субдилеров');
+     VALUES (5,'КЦ - Сделка (Субдилер)','Оплата закрытых субдилеров');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (6,'Сделка КЦ (Овердрафт)','Оплата закрытых заявок типа Овердрафт');
+     VALUES (6,'КЦ - Сделка (Овердрафт)','Оплата закрытых заявок типа Овердрафт');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (7,'Сделка КЦ (Консультация)','Оплата закрытых заявок типа Консультация');
+     VALUES (7,'КЦ - Сделка (Консультация)','Оплата закрытых заявок типа Консультация');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (8,'Сделка КЦ (Терминалы)','Оплата закрытых заявок типа Терминалы');
+     VALUES (8,'КЦ - Сделка (Терминалы)','Оплата закрытых заявок типа Терминалы');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (9,'Сделка КЦ (Qiwi-claim) переходы','Оплата переходов по претезиям ОСМП');
+     VALUES (9,'КЦ - Сделка (Qiwi-claim) переходы','Оплата переходов по претезиям ОСМП');
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (10,'Проекты','Суммы по закрытым проектам');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (11,'Сделка КЦ (Выгрузка для ОДБК)','Оплата выгрузки данных для запросов ОДБК');
+     VALUES (11,'КЦ - Сделка (Выгрузка для ОДБК)','Оплата выгрузки данных для запросов ОДБК');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (12,'Дежурный 5005 (Дни)','Бонус за ношение дежурного телефона');
+     VALUES (12,'Дежурство 5005 (Дни)','Бонус за ношение дежурного телефона');
 INSERT INTO dbo.dimBonusType (uid,name,description)
-     VALUES (13,'Дежурный 5005 (Обращения)','Бонус за работу дежурного');
+     VALUES (13,'Дежурство 5005 (Обращения)','Бонус за работу дежурного');
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (14,'Дежурство ИС (Дни)','Бонус за ношение дежурного телефона');
 INSERT INTO dbo.dimBonusType (uid,name,description)
@@ -65,7 +65,11 @@ INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (17,'Разработка подзадач','Бонус за разработку в проекте DEV');
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (18,'Разработка архитектуры','Бонус за архитектуру в проекте DEV');     
-
+INSERT INTO dbo.dimBonusType (uid,name,description)
+     VALUES (19,'ИС - Сделка','Бонус за запросы в проекте INFR');
+INSERT INTO dbo.dimBonusType (uid,name,description)
+     VALUES (20,'ИС - СЛА','СЛА по сервисам, поддерживаемым ИС'); 
+     
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 GO
