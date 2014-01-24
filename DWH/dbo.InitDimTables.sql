@@ -69,6 +69,8 @@ INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (19,'ИС - Сделка','Бонус за запросы в проекте INFR');
 INSERT INTO dbo.dimBonusType (uid,name,description)
      VALUES (20,'ИС - СЛА','СЛА по сервисам, поддерживаемым ИС'); 
+INSERT INTO dbo.dimBonusType (uid,name,description)
+     VALUES (21,'Оклад','Оклад сотрудников, распределенный по запросам'); 
      
 SET NOCOUNT ON -- turn the annoying messages back on
 END
