@@ -539,6 +539,13 @@ group by ji.id,dimIssueType.uid,pers.uid,subpers.uid;
 -------------------------------------
 execute dbo.ask_jira_closed_fix;
 
+-------------------------------------
+--
+--           Оклады
+--
+-------------------------------------
+execute dbo.PopulateFactBonusSalary;
+
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 
