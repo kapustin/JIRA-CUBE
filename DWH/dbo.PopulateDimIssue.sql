@@ -39,9 +39,9 @@ WHERE ji.ID=dimIssue.uid
 	and dimIssue.client_uid=-1
 	
 -- Заказчиком в проекте INFR является заказчик из связанного SUP
-UPDATE dbo.dimIssue SET client_uid=ISNULL(dimPerson.uid,-1)  
+UPDATE dbo.dimIssue SET client_uid=ISNULL(dimPerson.uid,10030)  -- соответсвующий человек (IT)
 FROM jiraissue ji
-JOIN issuelink jl ON jl.SOURCE=ji.ID
+LEFT OUTER JOIN issuelink jl ON jl.SOURCE=ji.ID
 LEFT OUTER JOIN jiraissue ji_sup ON ji_sup.ID=jl.DESTINATION AND ji_sup.PROJECT=10180 --SUP
 LEFT OUTER JOIN customfieldvalue client ON ji_sup.ID=client.ISSUE AND client.CUSTOMFIELD=10146 -- Заказчик
 LEFT OUTER JOIN dimPerson ON dimPerson.ADName=client.STRINGVALUE
