@@ -19,7 +19,7 @@ select
         ISNULL(MAX(dimDate.DateKey),-1),
         ISNULL(dimPerson.uid,-1),
         ISNULL(dimIssueType.uid,-1),
-        0,
+        19,
         CASE 
                 WHEN (DATEDIFF(dd, MAX(ji.DUEDATE), MAX(cg.CREATED)) <= 0) THEN 50 ELSE -500
         END bonus,
