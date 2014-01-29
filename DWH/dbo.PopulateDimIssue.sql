@@ -37,6 +37,16 @@ LEFT OUTER JOIN dimPerson ON dimPerson.ADName=ji.REPORTER
 WHERE ji.ID=dimIssue.uid
 	AND ji.PROJECT in (10280,10311)
 	and dimIssue.client_uid=-1
+	
+-- Заказчиком в проекте INFR является заказчик из связанного SUP
+UPDATE dbo.dimIssue SET client_uid=ISNULL(dimPerson.uid,-1)  
+FROM jiraissue ji
+JOIN issuelink jl ON jl.SOURCE=ji.ID
+LEFT OUTER JOIN jiraissue ji_sup ON ji_sup.ID=jl.DESTINATION AND ji_sup.PROJECT=10180 --SUP
+LEFT OUTER JOIN customfieldvalue client ON ji_sup.ID=client.ISSUE AND client.CUSTOMFIELD=10146 -- Заказчик
+LEFT OUTER JOIN dimPerson ON dimPerson.ADName=client.STRINGVALUE
+WHERE ji.ID=dimIssue.uid
+        AND ji.PROJECT=10070        -- INFR
 
 -- Сервис запросов разработки - комбинация компонентов
 UPDATE dbo.dimIssue SET service_uid=ISNULL(dimService.uid,-1)  
