@@ -10,7 +10,10 @@ SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 --
 --     Оклады в ИТ-поддержке
 --
+--     Внимание! Выполнять только после рассчта бонуса @sup_bonustype!
+--
 -------------------------------------
+declare @sup_bonustype int = 1; -- Слелка ИТ-поддержки
 
 insert into dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 select	factBonus.date_uid
@@ -25,10 +28,10 @@ join dimPerson on dimPerson.Department = 'Отдел ИТ-поддержки'
 join 
 	(select dimDate.CalendarYearMonth CalendarYearMonth, sum(bonus) bonus from factBonus
 	join dimDate on dimDate.DateKey = factBonus.date_uid
-	where factBonus.bonustype_uid = 1
+	where factBonus.bonustype_uid = @sup_bonustype
 	group by dimDate.CalendarYearMonth) b on b.CalendarYearMonth = dimDate.CalendarYearMonth
 join emp_rel on emp_rel.tabnum = dimPerson.TabNum and dimDate.FullDate between emp_rel.ddateb and ISNULL(emp_rel.ddatee,getdate())
-where factBonus.bonustype_uid = 1
+where factBonus.bonustype_uid = @sup_bonustype;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
