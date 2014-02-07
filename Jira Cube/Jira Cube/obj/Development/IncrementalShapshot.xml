@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <ProcessingOption>Default</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -19,91 +19,91 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>tgkXnJUitqgmwbVMYxvvWQ==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>JzWY+8yuiN+krr28EhDPUFAmFCI=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>JIRA DWH</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>CmGiEzpjhmikeQt/LtXKZQ==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>F6dpjGY1q/7osvLNuh/vUDbslfo=07.02.2014 16:35:2007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>JIRA DWH</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>h4YdGnp/crrG9W+LSeFKwQ==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>OrOcKaFL/QB+vPQho13QHV4V1W4=07.02.2014 16:52:4707.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Bonus Type</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>8b9ajvi7B7oqzBXO1olLfA==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>2Jj9JlEtlSoyC0wbI77GcLcDzlE=07.02.2014 16:28:3907.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Date</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>/4hPtcAddLA8ftR0jVhHNQ==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>X4Jp9hjEjAd/gMJHZp26Gm/sgek=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Person</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>r5WZa5bpKqLA8iweyRjwNA==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>UG/j1CkViBPZDEI5mCv3CI1/baU=07.02.2014 16:28:3907.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Issue Status</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>Gc2/pWNJfu3fLUOnuzF2fg==07.09.2012 12:54:2407.09.2012 12:54:24</TimeStamp>
+        <TimeStamp>iEMCmsl2k/7Sw9F0k8CPppF3Z3A=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Тип запроса</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>VxWh860ZHneIaVvrRts87g==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>MP7Z5GKMyjuckJ/3J/jYUzF9G3I=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Priority</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>DQeeNLQF1JLoImy6uPBFnA==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>QsDlOARj+JQjcvL8umvv/zq7mQ0=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Service</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>Al66eoREWU3rTAmh41Mg4g==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>XhnygrrzrgfEcL9trRnBbGd1Tw4=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Issue</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>b39Nuk2+QBihKvOCtnVecA==07.09.2012 12:54:2307.09.2012 12:54:23wjP0sw3tEkyDWCx1BiMTDA==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>mll3RdZYxAmMZWwwYSqkQl9zYe0=07.02.2014 16:40:3207.02.2014 16:29:16N9vBOqoHtoeV9L8vHSKIjVas4MM=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>JIRA</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Role</Type>
-        <TimeStamp>QgN7Uwm+7Zkg4/vloQImMw==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+        <TimeStamp>RHNBeQd+vXCwTrtc1jYF5h8gocQ=07.02.2014 16:28:3907.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Role</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Role</Type>
-        <TimeStamp>1K7rEq7aPZ5k6z3MTw5uMg==12.09.2012 15:55:1507.09.2012 12:54:24</TimeStamp>
+        <TimeStamp>8TdwDeoeK9q5O++alHm6I59noW4=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
         <ID>
           <String>Role 1</String>
         </ID>
@@ -111,7 +111,7 @@
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>05SFNvce34SFcHwpz0kxxw==07.09.2012 12:54:2307.09.2012 12:54:23</TimeStamp>
+      <TimeStamp>xwufbu6vIM8QBPu8yX9Uzz1HnJk=07.02.2014 16:28:4007.02.2014 16:29:16</TimeStamp>
       <ID>
         <String>Jira</String>
       </ID>
@@ -120,5 +120,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2012-09-24T05:55:54.613333Z</LastDeployed>
+  <LastDeployed>2014-02-07T12:52:53.426667Z</LastDeployed>
 </DeploymentSnapshot>
