@@ -25,7 +25,7 @@ INSERT INTO  dbo.dimIssueType (uid, issuetype_id, issuetype_name, issuetype_desc
     VALUES (-1,-1,'Не определено','Не определено',-1,'Не определено','Не определено','Не определено');
 SET IDENTITY_INSERT dimIssueType OFF;
 
-INSERT INTO  dbo.dimIssue (uid, pkey, info, client_uid, service_uid, priority_uid,issuetype_uid) 
+INSERT INTO  dbo.dimIssue (uid, pkey, info, client_uid, service_uid, priority_uid, issuetype_uid) 
 VALUES (-1,'N/A','Не определено',-1,-1,-1,-1);
      
 SET NOCOUNT ON -- turn the annoying messages back on
