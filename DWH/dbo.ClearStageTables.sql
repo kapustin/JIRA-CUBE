@@ -33,6 +33,8 @@ TRUNCATE TABLE dbo.reg_summ;
 TRUNCATE TABLE dbo.reg_violation;
 TRUNCATE TABLE dbo.reg_violation_user;
 TRUNCATE TABLE dbo.emp_rel;
+TRUNCATE TABLE dbo.sla_factor;
+TRUNCATE TABLE dbo.sla_owner;
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
