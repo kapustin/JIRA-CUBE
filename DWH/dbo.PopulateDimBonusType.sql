@@ -24,6 +24,15 @@ FROM sla_owner
 WHERE sla_type = 0
 GROUP BY component_info;
 
+-- Заполнение типов бонусов по СЛА фикс для ИС
+INSERT INTO dimBonusType (name,description,department)
+SELECT component_info,
+		'Бонус за СЛА фикс по компоненте ' + component_info,
+		'Инфраструктура'
+FROM sla_owner 
+WHERE sla_type = 3
+GROUP BY component_info;
+
 SET NOCOUNT ON -- turn the annoying messages back on
 END
 
