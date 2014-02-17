@@ -78,6 +78,54 @@ FROM #tmp
 	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = #tmp.bonustype AND dimBonusType.department='Инфраструктура'
 WHERE bonus IS NOT NULL AND bonus <> 0
 
+truncate table #tmp;
+truncate table #sla_owner;
+
+-------------------------------------
+--
+--     СЛА минус для ИС
+--
+-------------------------------------
+
+--declare @ddateb datetime, @ddatee datetime, @ddatei datetime,@comp varchar(150), @i int;
+set dateformat dmy;
+set @ddateb='01.01.2013';
+set @ddatee=DATEADD(month, DATEDIFF(month, 0, getdate()+1), 0);
+--create table #tmp(ddate datetime,person varchar(50),issuetype int,project int,bonus float,issueid bigint,bonustype varchar(150)) 
+--create table #sla_owner(id int identity(1,1) not null,component_info varchar(150));
+insert into #sla_owner(component_info)
+select component_info from sla_owner where sla_type=0;
+set @ddatei=@ddateb;
+while @ddatei<@ddatee begin
+	set @i=1;
+	while @i<=(select max(id) from #sla_owner) begin
+ 		set @comp=(select component_info from #sla_owner where id=@i);
+
+		print @comp;
+		print @ddatei;
+
+		insert into #tmp
+		exec calculate_sla_minus @ddatei,@comp;
+		set @i=@i+1;
+	end
+	set @ddatei=dateadd(month,1,@ddatei);
+end
+
+INSERT INTO dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+SELECT
+	 ISNULL(dimDate.DateKey,-1) date_uid
+	,ISNULL(dimPerson.uid,-1) person_uid
+	,ISNULL(dimIssueType.uid,-1) issuetype_uid
+	,ISNULL(dimBonusType.uid,-1) bonustype_uid
+	,#tmp.bonus
+	,#tmp.issueid
+FROM #tmp
+	LEFT OUTER JOIN dimDate ON dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, #tmp.ddate))
+	LEFT OUTER JOIN dimPerson ON dimPerson.ADname=#tmp.person
+	LEFT OUTER JOIN dimIssueType ON dimIssueType.issuetype_id=#tmp.issuetype AND dimIssueType.project_id=#tmp.project
+	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = #tmp.bonustype AND dimBonusType.department='Инфраструктура'
+WHERE bonus IS NOT NULL AND bonus <> 0
+
 drop table #tmp;
 drop table #sla_owner;
 
