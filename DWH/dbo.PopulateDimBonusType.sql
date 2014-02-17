@@ -14,6 +14,13 @@ SELECT component_info,
 FROM sla_owner 
 WHERE sla_type = 1
 
+-- Заполнение типов бонусов по СЛА минус для ИС
+INSERT INTO dimBonusType (name,description,department)
+SELECT component_info,
+		'Бонус за СЛА(-) по компоненте ' + component_info,
+		'Инфраструктура'
+FROM sla_owner 
+WHERE sla_type = 0
 
 SET NOCOUNT ON -- turn the annoying messages back on
 END
