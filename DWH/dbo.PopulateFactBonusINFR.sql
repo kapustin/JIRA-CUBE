@@ -51,7 +51,7 @@ set dateformat dmy;
 set @ddateb='01.01.2013';
 set @ddatee=DATEADD(month, DATEDIFF(month, 0, getdate()+1), 0);
 insert into #sla_owner(component_info)
-select component_info from sla_owner where sla_type=1;
+select distinct component_info from sla_owner where sla_type=1;
 set @ddatei=@ddateb;
 while @ddatei<@ddatee begin
 	set @i=1;
@@ -71,7 +71,7 @@ set dateformat dmy;
 set @ddateb='01.01.2013';
 set @ddatee=DATEADD(month, DATEDIFF(month, 0, getdate()+1), 0);
 insert into #sla_owner(component_info)
-select component_info from sla_owner where sla_type=0;
+select distinct component_info from sla_owner where sla_type=0;
 set @ddatei=@ddateb;
 while @ddatei<@ddatee begin
 	set @i=1;
@@ -95,7 +95,7 @@ set dateformat dmy;
 set @ddateb='01.01.2013';
 set @ddatee=DATEADD(month, DATEDIFF(month, 0, getdate()+1), 0);
 insert into #sla_owner(component_info)
-select component_info from sla_owner where sla_type=3;
+select distinct component_info from sla_owner where sla_type=3;
 set @ddatei=@ddateb;
 while @ddatei<@ddatee begin
 	set @i=1;
