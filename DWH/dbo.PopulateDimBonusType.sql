@@ -7,6 +7,7 @@ BEGIN
 SET NOCOUNT OFF -- turn off all the 1 row inserted messages
 
 -- Заполнение типов бонусов по СЛА для ИС
+INSERT INTO dimBonusType (name,description,department)
 SELECT sla_type_info+' '+component_info,
 		'Бонус за СЛА по компоненте ' + component_info,
 		'Инфраструктура'
