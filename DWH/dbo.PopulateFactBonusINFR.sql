@@ -42,75 +42,73 @@ group by ji.id,dimIssueType.uid,dimPerson.uid;
 --     СЛА для ИС
 --
 -------------------------------------
-declare @ddateb datetime, @ddatee datetime, @ddatei datetime,@comp varchar(150), @i int;
-create table #tmp(ddate datetime,person varchar(50),issuetype int,project int,bonus float,issueid bigint,bonustype varchar(150)) 
+declare @ddateb datetime, @ddatee datetime, @ddatei datetime,@comp varchar(150), @i int,@slatype int;
+create table #tmp(ddate datetime,person varchar(50),issuetype int,project int,bonus float,issueid bigint,bonustype varchar(150),slatype varchar(150)) 
 create table #sla_owner(id int identity(1,1) not null,component_info varchar(150));
 
 -- СЛА плюс
+set @slatype = 1;
 set dateformat dmy;
 set @ddateb='01.01.2013';
 set @ddatee=DATEADD(month, DATEDIFF(month, 0, getdate()+1), 0);
 insert into #sla_owner(component_info)
-select distinct component_info from sla_owner where sla_type=1;
+select distinct component_info from sla_owner where sla_type=@slatype;
 set @ddatei=@ddateb;
 while @ddatei<@ddatee begin
 	set @i=1;
 	while @i<=(select max(id) from #sla_owner) begin
  		set @comp=(select component_info from #sla_owner where id=@i);
-		insert into #tmp
+		insert into #tmp (ddate,person,issuetype,project,bonus,issueid,bonustype)
 		exec calculate_sla_plus @ddatei,@comp;
 		set @i=@i+1;
 	end
 	set @ddatei=dateadd(month,1,@ddatei);
 end
-
+update #tmp set slatype=(select top 1 sla_type_info from sla_owner where sla_type=@slatype) where slatype is null;
 truncate table #sla_owner;
 
 -- СЛА минус
+set @slatype = 0;
 set dateformat dmy;
 set @ddateb='01.01.2013';
 set @ddatee=DATEADD(month, DATEDIFF(month, 0, getdate()+1), 0);
 insert into #sla_owner(component_info)
-select distinct component_info from sla_owner where sla_type=0;
+select distinct component_info from sla_owner where sla_type=@slatype;
 set @ddatei=@ddateb;
 while @ddatei<@ddatee begin
 	set @i=1;
 	while @i<=(select max(id) from #sla_owner) begin
  		set @comp=(select component_info from #sla_owner where id=@i);
 
-		print @comp;
-		print @ddatei;
-
-		insert into #tmp
+		insert into #tmp (ddate,person,issuetype,project,bonus,issueid,bonustype)
 		exec calculate_sla_minus @ddatei,@comp;
 		set @i=@i+1;
 	end
 	set @ddatei=dateadd(month,1,@ddatei);
 end
-
+update #tmp set slatype=(select top 1 sla_type_info from sla_owner where sla_type=@slatype) where slatype is null;
 truncate table #sla_owner;
 
 -- СЛА фикс
+set @slatype = 3;
 set dateformat dmy;
 set @ddateb='01.01.2013';
 set @ddatee=DATEADD(month, DATEDIFF(month, 0, getdate()+1), 0);
 insert into #sla_owner(component_info)
-select distinct component_info from sla_owner where sla_type=3;
+select distinct component_info from sla_owner where sla_type=@slatype;
 set @ddatei=@ddateb;
 while @ddatei<@ddatee begin
 	set @i=1;
 	while @i<=(select max(id) from #sla_owner) begin
  		set @comp=(select component_info from #sla_owner where id=@i);
-
-		print @comp;
-		print @ddatei;
-
-		insert into #tmp
+ 		
+		insert into #tmp (ddate,person,issuetype,project,bonus,issueid,bonustype)
 		exec calculate_sla_fix @ddatei,@comp;
 		set @i=@i+1;
 	end
 	set @ddatei=dateadd(month,1,@ddatei);
 end
+update #tmp set slatype=(select top 1 sla_type_info from sla_owner where sla_type=@slatype) where slatype is null;
 
 INSERT INTO dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
 SELECT
@@ -124,7 +122,7 @@ FROM #tmp
 	LEFT OUTER JOIN dimDate ON dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, #tmp.ddate))
 	LEFT OUTER JOIN dimPerson ON dimPerson.ADname=#tmp.person
 	LEFT OUTER JOIN dimIssueType ON dimIssueType.issuetype_id=#tmp.issuetype AND dimIssueType.project_id=#tmp.project
-	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = #tmp.bonustype AND dimBonusType.department='Инфраструктура'
+	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = #tmp.slatype+' '+#tmp.bonustype AND dimBonusType.department='Инфраструктура'
 WHERE bonus IS NOT NULL AND bonus <> 0
 
 drop table #tmp;
