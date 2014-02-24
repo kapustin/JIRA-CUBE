@@ -128,5 +128,9 @@ WHERE bonus IS NOT NULL AND bonus <> 0
 drop table #tmp;
 drop table #sla_owner;
 
+-- СЛА по rc_unact
+exec calculate_sla_monitor_rc_unact '2013-02-01';
+exec calculate_sla_monitor_rc_unact2 '2014-02-01'
+
 SET NOCOUNT ON -- turn the annoying messages back on
 END
