@@ -23,7 +23,7 @@ select
 	 ISNULL(MAX(dimDate.DateKey),-1) date_uid
 	,ISNULL(dimPerson.uid,-1) person_uid
 	,ISNULL(dimIssueType.uid,-1) issuetype_uid
-	,5 bonustype_uid
+	,20 bonustype_uid
 	,50 bonus
 	,ji.ID issueid
 from jiraissue ji
