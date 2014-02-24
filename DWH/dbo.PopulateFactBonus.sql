@@ -537,7 +537,7 @@ group by ji.id,dimIssueType.uid,pers.uid,subpers.uid;
 --           Бонусы разработчиков
 --
 -------------------------------------
-execute dbo.ask_jira_closed_fix;
+execute dbo.PopulateFactBonusDEV;
 
 -------------------------------------
 --
