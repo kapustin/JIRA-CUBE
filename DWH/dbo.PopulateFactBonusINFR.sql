@@ -132,5 +132,22 @@ drop table #sla_owner;
 exec calculate_sla_monitor_rc_unact '2013-02-01';
 exec calculate_sla_monitor_rc_unact2 '2014-02-01'
 
+-------------------------------------
+--
+--     Убрать минусы из итогов за месяц
+--
+-------------------------------------
+INSERT INTO dbo.factBonus (date_uid,person_uid,issuetype_uid,bonustype_uid,bonus,issueid)
+SELECT MAX(DateKey),person_uid,-1,bonustype_uid,-bonus,-1 
+FROM 	(SELECT DateKey/100 ddate,person_uid,bonustype_uid,SUM(bonus) bonus
+	FROM dbo.factBonus
+	JOIN dbo.dimBonusType ON factBonus.bonustype_uid=dimBonusType.uid
+	JOIN dbo.dimDate ON factBonus.date_uid = dimDate.DateKey
+	WHERE dimBonusType.department = 'Инфраструктура'
+	GROUP BY DateKey/100,person_uid,bonustype_uid
+	HAVING SUM(bonus)<0) bonuses
+	JOIN dimDate ON dimDate.DateKey/100 = bonuses.ddate
+GROUP BY person_uid,bonustype_uid,bonus
+
 SET NOCOUNT ON -- turn the annoying messages back on
 END
