@@ -122,7 +122,7 @@ FROM #tmp
 	LEFT OUTER JOIN dimDate ON dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, #tmp.ddate))
 	LEFT OUTER JOIN dimPerson ON dimPerson.ADname=#tmp.person
 	LEFT OUTER JOIN dimIssueType ON dimIssueType.issuetype_id=#tmp.issuetype AND dimIssueType.project_id=#tmp.project
-	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = #tmp.slatype+' '+#tmp.bonustype AND dimBonusType.department='Инфраструктура'
+	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = #tmp.bonustype+' '+#tmp.slatype AND dimBonusType.department='Инфраструктура'
 WHERE bonus IS NOT NULL AND bonus <> 0
 
 drop table #tmp;
