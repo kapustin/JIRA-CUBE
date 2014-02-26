@@ -68,7 +68,7 @@ SELECT
 FROM #result
 	LEFT OUTER JOIN dimDate ON dimDate.FullDate=DATEADD(dd, 0, DATEDIFF(dd, 0, #result.date_uid))
 	LEFT OUTER JOIN dimPerson ON dimPerson.ADname=#result.person_uid
-	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = (select sla_type_info+' '+component_info from sla_owner where component_id = 10490 and sla_type=2 ) AND dimBonusType.department='Инфраструктура'
+	LEFT OUTER JOIN dimBonusType ON dimBonusType.name = (select rtrim(component_info)+' - '+rtrim(sla_type_info) from sla_owner where component_id = 10490 and sla_type=2 ) AND dimBonusType.department='Инфраструктура'
 WHERE bonus IS NOT NULL AND bonus <> 0
 	drop table #result;
 
